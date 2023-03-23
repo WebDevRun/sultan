@@ -1,0 +1,20 @@
+@use '@ui' as ui;
+
+.catalog {
+  @include ui.button-with-text(22px, 54px, 12px, 0.875rem, #ffffff);
+}
+
+@media (max-width: 840px) {
+  .catalog {
+    background-color: inherit;
+    color: ui.$gray;
+    flex-direction: row-reverse;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 8px 0;
+    gap: 6px;
+    margin: 5px 0;
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,133 @@
+@use '@ui' as ui;
+
+.header {
+  padding: 24px 0;
+  border-bottom: ui.$border-solid;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+  }
+
+  &__catalogAndSearch {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  &__contactsAndPriceListAndBasket {
+    display: flex;
+    align-items: center;
+
+    & > *:not(:last-child) {
+      padding-right: 1.56em;
+    }
+
+    & > *:not(:first-child) {
+      padding-left: 1.56em;
+    }
+
+    & > *:not(:last-child):not(:first-child) {
+      border-right: ui.$border-dashed;
+      border-left: ui.$border-dashed;
+    }
+  }
+
+  &__logo {
+    height: 100%;
+  }
+
+  &__burgerMenu {
+    display: none;
+  }
+}
+
+@media (max-width: 1315px) {
+  .header {
+    border-bottom: none;
+
+    &__container {
+      grid-template-columns: repeat(4, minmax(min-content, max-content));
+    }
+
+    &__contacts,
+    &__priceList {
+      display: none;
+    }
+
+    &__burgerMenu {
+      display: flex;
+      align-items: center;
+    }
+
+    &__contactsAndPriceListAndBasket {
+      & > *:last-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 840px) {
+  .header {
+    padding: 10px 0 0;
+
+    & > * {
+      padding: 0;
+    }
+
+    &__container {
+      grid-template-rows: repeat(2, min-content);
+      row-gap: 10px;
+    }
+
+    &__contacts {
+      display: block;
+    }
+
+    &__logoContainer {
+      grid-column: 2/-2;
+      grid-row: 1/2;
+      text-align: center;
+    }
+
+    &__catalogAndSearch {
+      grid-column: 1/-1;
+      grid-row: 2/-1;
+      padding: 0 ui.$padding-left;
+      gap: 0;
+      border-top: ui.$border-solid;
+      border-bottom: ui.$border-solid;
+    }
+
+    &__contactsAndPriceListAndBasket {
+      justify-content: end;
+      padding-right: ui.$padding-left;
+      gap: 0;
+    }
+
+    &__burgerMenu {
+      padding-left: ui.$padding-left;
+    }
+
+    &__catalog,
+    &__search {
+      flex-basis: 50%;
+    }
+
+    &__catalog > *:first-child {
+      border-right: ui.$border-dashed;
+    }
+  }
+}
+
+@media (max-width: 590px) {
+  .header {
+    &__contacts {
+      display: none;
+    }
+  }
+}

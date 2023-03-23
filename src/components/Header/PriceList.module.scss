@@ -1,0 +1,5 @@
+@use '@ui' as ui;
+
+.priceList {
+  @include ui.button-with-text(21px, 44px, 15px, 0.875rem, #ffffff);
+}

@@ -1,0 +1,57 @@
+@use '@ui' as ui;
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px 10px 20px;
+  gap: 10px;
+  background-color: #ededed;
+  border-radius: 36px;
+
+  &__input {
+    font-size: 0.75rem;
+    background-color: inherit;
+    border: none;
+    color: rgba($color: #5c6370, $alpha: 0.6);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__imageContainer {
+    @include ui.button-round(13px, #ffffff);
+  }
+
+  &__text {
+    display: none;
+  }
+}
+
+@media (max-width: 840px) {
+  .search {
+    display: block;
+    background-color: inherit;
+    padding: 0;
+
+    &__input {
+      display: none;
+    }
+
+    &__imageContainer {
+      width: 100%;
+      background-color: inherit;
+      gap: 6px;
+      color: ui.$gray;
+      padding: 8px 0;
+      margin: 5px 0;
+    }
+
+    &__text {
+      display: block;
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+  }
+}

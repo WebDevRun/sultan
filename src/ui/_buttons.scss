@@ -1,0 +1,36 @@
+@use './colors.scss' as colors;
+
+%button-styles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: colors.$lightYellow;
+  border: none;
+
+  cursor: pointer;
+  font-weight: 700;
+}
+
+%button-collapse {
+  @extend %button-styles;
+  border-radius: 79px;
+}
+
+%button-round {
+  @extend %button-styles;
+  border-radius: 50%;
+}
+
+@mixin button-round($padding, $color) {
+  @extend %button-round;
+  padding: $padding;
+  color: $color;
+}
+
+@mixin button-with-text($padding-top, $padding-left, $gap, $font-size, $color) {
+  @extend %button-collapse;
+  gap: $gap;
+  padding: $padding-top $padding-left;
+  font-size: $font-size;
+  color: $color;
+}

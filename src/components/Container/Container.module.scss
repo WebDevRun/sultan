@@ -1,0 +1,8 @@
+@use '@ui' as ui;
+
+.container {
+  max-width: ui.$width + ui.$padding-left * 2;
+  width: 100%;
+  padding: 0 ui.$padding-left;
+  margin: 0 auto;
+}

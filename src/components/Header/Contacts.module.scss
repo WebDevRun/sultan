@@ -1,0 +1,51 @@
+@use '@ui' as ui;
+
+.contacts {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  &__infomation {
+    text-align: right;
+  }
+
+  &__phone {
+    display: block;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: ui.$black;
+    margin-bottom: 5px;
+  }
+
+  &__timeWork {
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: ui.$gray;
+    margin-bottom: 5px;
+  }
+
+  &__order {
+    background-color: inherit;
+    font-size: 0.625rem;
+    text-decoration-line: underline;
+    color: ui.$gray;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__imageContainer {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 29px;
+      right: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 2px solid #f0f6fa;
+      background-color: #1fd85d;
+    }
+  }
+}
