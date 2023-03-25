@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 1em;
+  color: inherit;
 
   &__image {
     width: 20px;
@@ -13,12 +14,27 @@
 
   &__address {
     font-weight: 600;
+    font-size: 0.875rem;
     line-height: 1.3;
-    color: ui.$black;
+
+    &_header {
+      color: ui.$black;
+    }
+
+    &_footer {
+      color: inherit;
+    }
   }
 
   &__correction {
     font-size: 0.75rem;
-    color: ui.$gray;
+
+    &_header {
+      color: ui.$gray;
+    }
+
+    &_footer {
+      color: inherit;
+    }
   }
 }

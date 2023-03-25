@@ -4,6 +4,10 @@
   padding: 24px 0;
   border-bottom: ui.$border-solid;
 
+  &__logo {
+    color: ui.$gray;
+  }
+
   &__container {
     display: grid;
     grid-template-columns: repeat(3, minmax(min-content, max-content));
@@ -34,10 +38,6 @@
       border-right: ui.$border-dashed;
       border-left: ui.$border-dashed;
     }
-  }
-
-  &__logo {
-    height: 100%;
   }
 
   &__burgerMenu {
@@ -88,7 +88,7 @@
       display: block;
     }
 
-    &__logoContainer {
+    &__logo {
       grid-column: 2/-2;
       grid-row: 1/2;
       text-align: center;

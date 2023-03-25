@@ -6,14 +6,13 @@
   justify-content: center;
   background-color: colors.$lightYellow;
   border: none;
-
   cursor: pointer;
-  font-weight: 700;
 }
 
 %button-collapse {
   @extend %button-styles;
   border-radius: 79px;
+  font-weight: 700;
 }
 
 %button-round {
@@ -21,9 +20,10 @@
   border-radius: 50%;
 }
 
-@mixin button-round($padding, $color) {
+@mixin button-round($width, $color) {
   @extend %button-round;
-  padding: $padding;
+  width: $width;
+  height: $width;
   color: $color;
 }
 

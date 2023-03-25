@@ -1,0 +1,12 @@
+.messengers {
+  &__title {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 10px;
+  }
+}

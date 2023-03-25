@@ -1,36 +1,59 @@
 @use '@ui' as ui;
 
-.contacts {
+.phone {
   display: flex;
   align-items: center;
   gap: 14px;
 
-  &__infomation {
-    text-align: right;
+  &__container {
+    &_header {
+      text-align: right;
+    }
   }
 
-  &__phone {
+  &__numbers {
     display: block;
     font-weight: 600;
     font-size: 0.875rem;
-    color: ui.$black;
     margin-bottom: 5px;
+
+    &_header {
+      color: ui.$black;
+    }
+
+    &_footer {
+      color: inherit;
+    }
   }
 
   &__timeWork {
     font-weight: 300;
     font-size: 0.75rem;
-    color: ui.$gray;
     margin-bottom: 5px;
+
+    &_header {
+      color: ui.$gray;
+    }
+
+    &_footer {
+      color: inherit;
+    }
   }
 
   &__order {
     background-color: inherit;
     font-size: 0.625rem;
     text-decoration-line: underline;
-    color: ui.$gray;
     border: none;
     cursor: pointer;
+
+    &_header {
+      color: ui.$gray;
+    }
+
+    &_footer {
+      color: inherit;
+    }
   }
 
   &__imageContainer {

@@ -1,0 +1,12 @@
+@use '@ui' as ui;
+
+.contacts {
+  &__subtitle {
+    margin-bottom: 25px;
+  }
+
+  &__phone,
+  &__mail {
+    margin-bottom: 25px;
+  }
+}

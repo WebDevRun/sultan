@@ -1,0 +1,15 @@
+@use '@ui' as ui;
+
+.priceList {
+  &__subtitle {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 730px) {
+  .priceList {
+    &__subtitle {
+      display: none;
+    }
+  }
+}

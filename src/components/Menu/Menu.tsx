@@ -2,11 +2,12 @@ import { FC } from 'react'
 
 import { Container } from '../Container'
 import { Address } from './Address'
-import { Mail } from './Mail'
-import { Navigation } from './Navigation'
+import { Mail, Navigation } from '../general'
 import styles from './Menu.module.scss'
 
 export const Menu: FC = () => {
+  const menu = ['О компании', 'Доставка и оплата', 'Возврат', 'Контакты']
+
   return (
     <div className={styles.menu}>
       <Container>
@@ -20,7 +21,7 @@ export const Menu: FC = () => {
             </div>
           </div>
 
-          <Navigation />
+          <Navigation list={menu} />
         </div>
       </Container>
     </div>
