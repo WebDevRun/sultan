@@ -1,0 +1,70 @@
+@use '@ui' as ui;
+
+.leftFilters {
+  &__titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.5;
+    color: ui.$black;
+  }
+
+  &__toggleHidden {
+    display: none;
+    @include ui.button-round(32px, ui.$gray);
+    transform: rotate(270deg);
+
+    &_rotate {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__price {
+    margin-bottom: 1.875em;
+  }
+
+  &__manufacturer {
+    border-bottom: 1px dashed ui.$gray;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__submit {
+    @include ui.button-with-text(21px, 51px, 0, 0.875rem, #ffffff);
+  }
+
+  &__reset {
+    @include ui.button-round(59px, #ffffff);
+  }
+}
+
+@media (max-width: 480px) {
+  .leftFilters {
+    &__toggleHidden {
+      display: flex;
+    }
+
+    &__submit {
+      flex: 1 0;
+    }
+
+    &__form {
+      &_hidden {
+        display: none;
+      }
+    }
+  }
+}

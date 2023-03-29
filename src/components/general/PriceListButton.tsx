@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import styles from './PriceListButton.module.scss'
-import priceList from './images/price-list.svg'
+import priceList from '/images/general/price-list.svg'
 
 export const PriceListButton: FC = () => {
   return (

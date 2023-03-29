@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import styles from './Messengers.module.scss'
-import watsapp from './images/watsapp.png'
-import telegram from './images/telegram.png'
+import watsapp from '/images/footer/watsapp.png'
+import telegram from '/images/footer/telegram.png'
 
 export const Messengers: FC = () => {
   const messengers = [

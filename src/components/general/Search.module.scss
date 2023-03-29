@@ -35,27 +35,35 @@
 
 @media (max-width: 840px) {
   .search {
-    display: block;
-    background-color: inherit;
-    padding: 0;
+    &_header {
+      display: block;
+      background-color: inherit;
+      padding: 0;
+    }
 
     &__input {
-      display: none;
+      &_header {
+        display: none;
+      }
     }
 
     &__imageContainer {
-      width: 100%;
-      background-color: inherit;
-      gap: 6px;
-      color: ui.$gray;
-      padding: 8px 0;
-      margin: 5px 0;
+      &_header {
+        width: 100%;
+        background-color: inherit;
+        gap: 6px;
+        color: ui.$gray;
+        padding: 8px 0;
+        margin: 5px 0;
+      }
     }
 
     &__text {
-      display: block;
-      font-weight: 600;
-      font-size: 0.75rem;
+      &_header {
+        display: block;
+        font-weight: 600;
+        font-size: 0.75rem;
+      }
     }
   }
 }

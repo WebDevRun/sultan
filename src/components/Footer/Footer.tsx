@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import { Container } from '../Container'
 import { About } from './About'
@@ -15,9 +15,9 @@ export const Footer: FC = () => {
     <footer className={styles.footer}>
       <Container>
         <div className={styles.footer__container}>
-          <a href="#" className={styles.footer__logo}>
+          <div className={styles.footer__logo}>
             <Logo />
-          </a>
+          </div>
           <div className={styles.footer__about}>
             <About />
           </div>

@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import styles from './BurgerMenu.module.scss'
-import burgerImage from './images/burger_menu.svg'
+import burgerImage from '/images/header/burger_menu.svg'
 
 export const BurgerMenu: FC = () => {
   return (

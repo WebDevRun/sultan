@@ -1,0 +1,64 @@
+@use '@ui' as ui;
+
+.filterProducts {
+  &_top {
+    display: flex;
+    gap: 10px;
+  }
+
+  &_left {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  &__element {
+    &_top {
+      max-width: fit-content;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.04);
+      border-radius: 10px;
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+
+    &_top {
+      display: flex;
+      text-align: center;
+      color: ui.$gray;
+    }
+
+    &_left {
+      color: ui.$black;
+    }
+  }
+
+  &__radio {
+    display: none;
+  }
+
+  &__text {
+    &_top {
+      padding: 18px 19px;
+      font-size: 0.875rem;
+    }
+
+    &_left {
+      font-weight: 500;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+  .filterProducts {
+    &_top {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min-content, 140px));
+    }
+  }
+}

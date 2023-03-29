@@ -1,0 +1,41 @@
+@use '@ui' as ui;
+
+.sort {
+  display: inline-flex;
+  gap: 5px;
+
+  &__text {
+    font-weight: 500;
+    line-height: 1.5;
+    color: ui.$black;
+  }
+
+  &__select {
+    font-family: inherit;
+    font-size: 1rem;
+    border: none;
+    appearance: none;
+    line-height: 1.5;
+    color: ui.$gray;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 5px;
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked + .sort__image {
+      transform: rotate(180deg);
+    }
+  }
+}

@@ -1,16 +1,15 @@
-import { FC } from 'react'
+import { type FC } from 'react'
+import { Outlet } from 'react-router-dom'
 
 import { Container } from '../Container'
 import styles from './Main.module.scss'
 
-interface MainProps {
-  children: React.ReactNode
-}
-
-export const Main: FC<MainProps> = ({ children }) => {
+export const Main: FC = () => {
   return (
     <main className={styles.main}>
-      <Container>{children}</Container>
+      <Container>
+        <Outlet />
+      </Container>
     </main>
   )
 }

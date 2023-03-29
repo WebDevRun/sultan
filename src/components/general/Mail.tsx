@@ -1,14 +1,14 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import styles from './Mail.module.scss'
-import mail from './images/mail.svg'
+import mail from '/images/general/mail.svg'
 
 interface MailProps {
   isFooter?: boolean
 }
 
 export const Mail: FC<MailProps> = ({ isFooter = false }) => {
-  const setAddressStyles = (isFooter: boolean) => {
+  const setAddressStyles = (isFooter: boolean): string => {
     const stylesList = [styles.mail__address]
 
     if (isFooter) {
@@ -20,7 +20,7 @@ export const Mail: FC<MailProps> = ({ isFooter = false }) => {
     return stylesList.join(' ')
   }
 
-  const setCorrectionStyles = (isFooter: boolean) => {
+  const setCorrectionStyles = (isFooter: boolean): string => {
     const stylesList = [styles.mail__correction]
 
     if (isFooter) {

@@ -1,0 +1,44 @@
+@use '@ui' as ui;
+
+.manufacturer {
+  &__title {
+    font-weight: 500;
+    line-height: 1.5;
+    color: ui.$black;
+    margin-bottom: 0.938em;
+  }
+
+  &__search {
+    margin-bottom: 0.938em;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 1.25em;
+  }
+
+  &__label {
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    margin-right: 10px;
+    border: 0.5px solid ui.$gray;
+    border-radius: 1px;
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: ui.$gray;
+    margin-right: 5px;
+  }
+
+  &__count {
+    font-size: 0.625rem;
+    line-height: 1.5;
+    color: ui.$gray;
+  }
+}

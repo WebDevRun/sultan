@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import { PayCards } from './PayCards'
 import { Subtitle } from './Subtitle'
 import { Phone, Mail } from '../general'
 import styles from './Contacts.module.scss'
-import visa from './images/visa.png'
-import mastercard from './images/mastercard.png'
+import visa from '/images/footer/visa.png'
+import mastercard from '/images/footer/mastercard.png'
 
 export const Contacts: FC = () => {
   const subtitle = 'Контакты:'

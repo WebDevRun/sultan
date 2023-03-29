@@ -1,0 +1,54 @@
+import { type FC } from 'react'
+
+import { Search } from '../general'
+import { useuseManufacturerFilterPart } from './hooks/useManufacturerFilterPart'
+import styles from './ManufacturerFilterPart.module.scss'
+
+interface ManufacturerFilterPartProps {
+  manufacturers?: string | null
+}
+
+export const ManufacturerFilterPart: FC<ManufacturerFilterPartProps> = ({
+  manufacturers = null,
+}) => {
+  const [setSearchString, filteredManufacturers, manufacturerCount] =
+    useuseManufacturerFilterPart()
+
+  return (
+    <div className={styles.manufacturer}>
+      <p className={styles.manufacturer__title}>Производитель</p>
+
+      <div className={styles.manufacturer__search}>
+        <Search setValue={setSearchString} />
+      </div>
+
+      <ul className={styles.manufacturer__List}>
+        {filteredManufacturers.map((manufacturer) => {
+          return (
+            <li className={styles.manufacturer__element} key={manufacturer}>
+              <label className={styles.manufacturer__label}>
+                <input
+                  className={styles.manufacturer__checkbox}
+                  name="manufacturer"
+                  value={manufacturer}
+                  type="checkbox"
+                  defaultChecked={
+                    manufacturers === null
+                      ? false
+                      : manufacturers.includes(manufacturer)
+                  }
+                />
+                <span className={styles.manufacturer__text}>
+                  {manufacturer}
+                </span>
+                <span className={styles.manufacturer__count}>
+                  ({manufacturerCount[manufacturer]})
+                </span>
+              </label>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  )
+}

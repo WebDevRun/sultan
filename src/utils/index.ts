@@ -1,0 +1,1 @@
+export { setModificationToStyle } from './setModificationToStyle'

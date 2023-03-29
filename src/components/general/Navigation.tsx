@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import styles from './Navigation.module.scss'
 
@@ -11,7 +11,7 @@ export const Navigation: FC<NavigationProps> = ({
   list = [],
   isColumn = false,
 }) => {
-  const ulStyles = (isColumn: boolean) => {
+  const ulStyles = (isColumn: boolean): string => {
     const stylesList = [styles.navigation__list]
 
     if (isColumn) {
@@ -23,7 +23,7 @@ export const Navigation: FC<NavigationProps> = ({
     return stylesList.join(' ')
   }
 
-  const liStyles = (isColumn: boolean) => {
+  const liStyles = (isColumn: boolean): string => {
     const stylesList = [styles.navigation__element]
 
     if (isColumn) {

@@ -1,14 +1,14 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import styles from './Phone.module.scss'
-import phone from './images/phone.png'
+import phone from '/images/general/phone.png'
 
 interface PhoneProps {
   isFooter?: boolean
 }
 
 export const Phone: FC<PhoneProps> = ({ isFooter = false }) => {
-  const setContainerStyles = (isFooter: boolean) => {
+  const setContainerStyles = (isFooter: boolean): string => {
     const stylesList = [styles.phone__container]
 
     if (isFooter) {
@@ -20,7 +20,7 @@ export const Phone: FC<PhoneProps> = ({ isFooter = false }) => {
     return stylesList.join(' ')
   }
 
-  const setNumbersStyles = (isFooter: boolean) => {
+  const setNumbersStyles = (isFooter: boolean): string => {
     const stylesList = [styles.phone__numbers]
 
     if (isFooter) {
@@ -32,7 +32,7 @@ export const Phone: FC<PhoneProps> = ({ isFooter = false }) => {
     return stylesList.join(' ')
   }
 
-  const setTimeWorkStyles = (isFooter: boolean) => {
+  const setTimeWorkStyles = (isFooter: boolean): string => {
     const stylesList = [styles.phone__timeWork]
 
     if (isFooter) {
@@ -44,7 +44,7 @@ export const Phone: FC<PhoneProps> = ({ isFooter = false }) => {
     return stylesList.join(' ')
   }
 
-  const setOrderStyles = (isFooter: boolean) => {
+  const setOrderStyles = (isFooter: boolean): string => {
     const stylesList = [styles.phone__order]
 
     if (isFooter) {

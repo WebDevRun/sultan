@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import styles from './Address.module.scss'
-import location from './images/location.svg'
+import location from '/images/menu/location.svg'
 
 export const Address: FC = () => {
   return (

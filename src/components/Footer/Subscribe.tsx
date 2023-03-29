@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import styles from './Subscribe.module.scss'
-import arrow from './images/arrow.svg'
+import arrow from '/images/general/arrow.svg'
 
 export const Subscribe: FC = () => {
   return (

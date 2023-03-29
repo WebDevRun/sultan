@@ -1,9 +1,8 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import { Container } from '../Container'
-import { Logo, Phone, PriceListButton } from '../general'
+import { Logo, Phone, PriceListButton, Search } from '../general'
 import { Catalog } from './Catalog'
-import { Search } from './Search'
 import { Basket } from './Basket'
 import { BurgerMenu } from './BurgerMenu'
 import styles from './Header.module.scss'
@@ -13,16 +12,16 @@ export const Header: FC = () => {
     <header className={styles.header}>
       <Container>
         <div className={styles.header__container}>
-          <a href="#" className={styles.header__logo}>
+          <div className={styles.header__logo}>
             <Logo />
-          </a>
+          </div>
 
           <div className={styles.header__catalogAndSearch}>
             <div className={styles.header__catalog}>
               <Catalog />
             </div>
             <div className={styles.header__search}>
-              <Search />
+              <Search isHeader={true} />
             </div>
           </div>
 
