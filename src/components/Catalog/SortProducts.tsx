@@ -4,7 +4,16 @@ import { useSearchParams } from 'react-router-dom'
 import styles from './SortProducts.module.scss'
 
 export const SortProducts: FC = () => {
-  const sortOptions = ['Название', 'Цена']
+  const sortOptions = [
+    {
+      name: 'name',
+      description: 'Название',
+    },
+    {
+      name: 'price',
+      description: 'Цена',
+    },
+  ]
   const [params, setParams] = useSearchParams()
 
   const selectChangeHandler: ChangeEventHandler<HTMLSelectElement> = (
@@ -30,12 +39,13 @@ export const SortProducts: FC = () => {
     return true
   }
 
-  const defaultSelectValue = (): string => {
+  const defaultSelectValue = (string: string): boolean | undefined => {
     const value = params.get('select')
 
-    if (value === null) return sortOptions[0]
+    if (value === null) return undefined
+    if (value === string) return true
 
-    return value
+    return false
   }
 
   return (
@@ -44,13 +54,16 @@ export const SortProducts: FC = () => {
       <select
         className={styles.sort__select}
         name="select"
-        defaultValue={defaultSelectValue()}
         onChange={selectChangeHandler}
       >
         {sortOptions.map((option) => {
           return (
-            <option key={option} value={option}>
-              {option}
+            <option
+              key={option.name}
+              value={option.name}
+              selected={defaultSelectValue(option.name)}
+            >
+              {option.description}
             </option>
           )
         })}
