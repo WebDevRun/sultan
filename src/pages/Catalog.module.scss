@@ -44,12 +44,6 @@
     grid-column: 2/5;
   }
 
-  &__pagination {
-    grid-column: 2/5;
-    justify-self: center;
-    margin-top: 20px;
-  }
-
   &__text {
     grid-column: 2/5;
     margin-top: 2.375em;
@@ -84,10 +78,6 @@
       grid-column: 1/5;
     }
 
-    &__pagination {
-      grid-column: 1/5;
-    }
-
     &__text {
       grid-column: 1/5;
     }
@@ -102,11 +92,6 @@
       grid-column: 1/5;
       padding-right: 0;
       display: block;
-    }
-
-    &__pagination {
-      grid-column: 1/5;
-      margin-top: 15px;
     }
 
     &__text {

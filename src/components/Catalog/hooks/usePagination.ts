@@ -1,17 +1,23 @@
-import { useEffect, useState } from 'react'
-import { useAppSelector } from '../../../store'
+import { type Dispatch, useEffect, useState } from 'react'
 
-export const usePagination = (): number[] => {
-  const productCount = useAppSelector(
-    (state) => state.productsSlice.products.length
-  )
+export const usePagination = (
+  productsLength: number,
+  productCountOnPage: number,
+  setValue: Dispatch<React.SetStateAction<number>>
+): [number[], number, Dispatch<React.SetStateAction<number>>] => {
   const [pages, setPages] = useState<number[]>([])
 
+  const [currentPage, setCurrentPage] = useState<number>(1)
+
   useEffect(() => {
-    const pageCount = Math.ceil(productCount / 15)
+    setValue(currentPage)
+  }, [currentPage])
+
+  useEffect(() => {
+    const pageCount = Math.ceil(productsLength / productCountOnPage)
     const pageList = Array.from({ length: pageCount }, (_, index) => index + 1)
     setPages(pageList)
-  }, [productCount])
+  }, [productsLength])
 
-  return pages
+  return [pages, currentPage, setCurrentPage]
 }

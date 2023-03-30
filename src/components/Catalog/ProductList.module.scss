@@ -1,5 +1,23 @@
 .productList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 21px;
+  display: flex;
+  flex-direction: column;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, max-content));
+    gap: 21px;
+  }
+
+  &__pagination {
+    margin-top: 50px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 630px) {
+  .productList {
+    &__grid {
+      justify-content: center;
+    }
+  }
 }

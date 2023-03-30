@@ -1,20 +1,12 @@
 import { type ChangeEventHandler, type FC } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useSortProducts } from './hooks/useSortProducts'
 
 import styles from './SortProducts.module.scss'
 
 export const SortProducts: FC = () => {
-  const sortOptions = [
-    {
-      name: 'name',
-      description: 'Название',
-    },
-    {
-      name: 'price',
-      description: 'Цена',
-    },
-  ]
   const [params, setParams] = useSearchParams()
+  const { sortOptions, selectValue, checkboxStatus } = useSortProducts(params)
 
   const selectChangeHandler: ChangeEventHandler<HTMLSelectElement> = (
     event
@@ -30,24 +22,6 @@ export const SortProducts: FC = () => {
     setParams(params)
   }
 
-  const defaultCheckboxStatus = (): boolean => {
-    const value = params.get('toggleASC')
-
-    if (value === null) return false
-    if (value === 'false') return false
-
-    return true
-  }
-
-  const defaultSelectValue = (string: string): boolean | undefined => {
-    const value = params.get('select')
-
-    if (value === null) return undefined
-    if (value === string) return true
-
-    return false
-  }
-
   return (
     <form className={styles.sort}>
       <span className={styles.sort__text}>Сортировка:</span>
@@ -55,14 +29,11 @@ export const SortProducts: FC = () => {
         className={styles.sort__select}
         name="select"
         onChange={selectChangeHandler}
+        value={selectValue}
       >
-        {sortOptions.map((option) => {
+        {sortOptions.current.map((option) => {
           return (
-            <option
-              key={option.name}
-              value={option.name}
-              selected={defaultSelectValue(option.name)}
-            >
+            <option key={option.name} value={option.name}>
               {option.description}
             </option>
           )
@@ -74,7 +45,7 @@ export const SortProducts: FC = () => {
           className={styles.sort__checkbox}
           type="checkbox"
           name="toggleASC"
-          defaultChecked={defaultCheckboxStatus()}
+          checked={checkboxStatus}
           onChange={checkboxChangeHandler}
         />
         <img

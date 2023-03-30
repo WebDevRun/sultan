@@ -24,13 +24,12 @@
     align-items: center;
   }
 
-  &__pageButton {
+  &__pageLabel {
     display: flex;
     align-items: center;
     padding: 8px 14px;
     background-color: inherit;
     border-radius: 50%;
-    border: none;
     cursor: pointer;
     font-weight: 500;
     font-size: 0.875rem;
@@ -44,5 +43,9 @@
         rgba(254, 202, 110, 0.3) 97.25%
       );
     }
+  }
+
+  &__pageInput {
+    display: none;
   }
 }

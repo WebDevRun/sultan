@@ -1,10 +1,43 @@
-import { type FC } from 'react'
+import { type MouseEventHandler, type Dispatch, type FC } from 'react'
 
 import { usePagination } from './hooks/usePagination'
 import styles from './Pagination.module.scss'
 
-export const Pagination: FC = () => {
-  const pages = usePagination()
+interface PaginationProps {
+  productsLength: number
+  productCountOnPage?: number
+  setValue: Dispatch<React.SetStateAction<number>>
+}
+
+export const Pagination: FC<PaginationProps> = ({
+  productsLength,
+  productCountOnPage = 15,
+  setValue,
+}) => {
+  const [pages, currentPage, setCurrentPage] = usePagination(
+    productsLength,
+    productCountOnPage,
+    setValue
+  )
+
+  const prevClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
+    setCurrentPage((page) => {
+      if (page <= 1) return 1
+      return page - 1
+    })
+  }
+
+  const pageClickHandler: MouseEventHandler<HTMLInputElement> = (event) => {
+    const value = event.currentTarget.value
+    setCurrentPage(Number(value))
+  }
+
+  const nextClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
+    setCurrentPage((page) => {
+      if (page >= pages.length) return pages.length
+      return page + 1
+    })
+  }
 
   return (
     <div className={styles.pagination}>
@@ -13,7 +46,10 @@ export const Pagination: FC = () => {
           styles.pagination__arrow,
           styles.pagination__arrow_left,
         ].join(' ')}
+        name="prev"
+        value="prev"
         type="button"
+        onClick={prevClickHandler}
       >
         <svg
           width="8"
@@ -33,7 +69,23 @@ export const Pagination: FC = () => {
         {pages.map((page) => {
           return (
             <li className={styles.pagination__page} key={page}>
-              <button className={styles.pagination__pageButton}>{page}</button>
+              <label
+                className={[
+                  styles.pagination__pageLabel,
+                  page === currentPage
+                    ? styles.pagination__pageLabel_active
+                    : undefined,
+                ].join(' ')}
+              >
+                <input
+                  className={styles.pagination__pageInput}
+                  type="radio"
+                  name="page"
+                  value={page}
+                  onClick={pageClickHandler}
+                />
+                <span className={styles.pagination__pageText}>{page}</span>
+              </label>
             </li>
           )
         })}
@@ -44,7 +96,10 @@ export const Pagination: FC = () => {
           styles.pagination__arrow,
           styles.pagination__arrow_right,
         ].join(' ')}
+        name="next"
+        value="next"
         type="button"
+        onClick={nextClickHandler}
       >
         <svg
           width="8"

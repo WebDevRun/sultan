@@ -7,7 +7,6 @@ import {
   SortProducts,
   LeftFilters,
   ProductList,
-  Pagination,
   Text,
 } from '../components/Catalog'
 import styles from './Catalog.module.scss'
@@ -59,9 +58,7 @@ export const Catalog: FC = () => {
       <div className={styles.catalog__productList}>
         <ProductList products={filteredProducts} />
       </div>
-      <div className={styles.catalog__pagination}>
-        <Pagination />
-      </div>
+
       <div className={styles.catalog__text}>
         <Text />
       </div>
