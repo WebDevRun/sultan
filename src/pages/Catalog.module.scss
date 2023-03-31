@@ -8,9 +8,7 @@
   margin-bottom: 6.25em;
 
   &__error {
-    text-align: center;
-    font-size: 2rem;
-    color: rgb(223, 121, 121);
+    @include ui.error(2rem);
   }
 
   &__title {

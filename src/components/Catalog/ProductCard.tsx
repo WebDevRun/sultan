@@ -1,6 +1,8 @@
 import { type FC } from 'react'
+import { Link } from 'react-router-dom'
 
 import { type IProduct } from '../../store'
+import { ProductSize, Specifications } from '../general'
 import styles from './ProductCard.module.scss'
 
 interface ProductCardProps {
@@ -19,41 +21,22 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
       </div>
 
       <div className={styles.productCard__size}>
-        <img
-          className={styles.productCard__sizeImage}
-          src={
-            product.typeSize === 'г'
-              ? '/images/catalog/weight.svg'
-              : '/images/catalog/volume.svg'
-          }
-          alt={product.typeSize}
-        />
-        <span className={styles.productCard__sizeText}>
-          {product.size} {product.typeSize}
-        </span>
+        <ProductSize size={product.size} typeSize={product.typeSize} />
       </div>
 
-      <a href="#" className={styles.productCard__title}>
+      <Link to={product.id} className={styles.productCard__title}>
         {product.name}
-      </a>
+      </Link>
 
-      <div className={styles.productCard__descriptions}>
-        <p className={styles.productCard__barcode}>
-          <span className={styles.productCard__text}>Штрихкод:</span>
-          {product.barcode}
-        </p>
-        <p className={styles.productCard__manufacturer}>
-          <span className={styles.productCard__text}>Производитель:</span>
-          {product.manufacturer}
-        </p>
-        <p className={styles.productCard__brand}>
-          <span className={styles.productCard__text}>Бренд:</span>
-          {product.brand}
-        </p>
-        <p className={styles.productCard__typesOfCare}>
-          <span className={styles.productCard__text}>Типу ухода:</span>
-          {product.typeOfCare.join(', ')}
-        </p>
+      <div className={styles.productCard__specifications}>
+        <Specifications
+          args={{
+            Штрихкод: product.barcode,
+            Производитель: product.manufacturer,
+            Бренд: product.brand,
+            'Типу ухода': product.typeOfCare.join(', '),
+          }}
+        />
       </div>
 
       <div className={styles.productCard__priceAndButton}>

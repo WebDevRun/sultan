@@ -50,7 +50,7 @@ export const SortProducts: FC = () => {
         />
         <img
           className={styles.sort__image}
-          src="/images/catalog/triangle.png"
+          src="/images/general/triangle.png"
           alt="triangle"
         />
       </label>

@@ -1,0 +1,97 @@
+@use '@ui' as ui;
+
+%borders {
+  box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.04);
+  border-radius: 10px;
+}
+
+.selectProduct {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625em;
+
+  &__price {
+    font-weight: 800;
+    font-size: 1.875rem;
+    line-height: 1.3;
+    color: ui.$black;
+  }
+
+  &__countContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.125em;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    padding: 0.5em 0.875em;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 198, 80, 0.3) 0%,
+      rgba(254, 202, 110, 0.3) 97.25%
+    );
+    cursor: pointer;
+  }
+
+  &__count {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.3;
+    color: ui.$gray;
+  }
+
+  &__submit {
+    @include ui.button-with-text(18px, 40px, 12px, 0.625rem, #ffffff);
+  }
+
+  &__share {
+    @extend %borders;
+    background-color: inherit;
+    padding: 1.688em;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__image {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__info {
+    @extend %borders;
+    flex: 0 1 320px;
+    padding: 1.313em 2.25em;
+  }
+
+  &__text {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    text-align: center;
+    color: ui.$gray;
+  }
+}
+
+@media (max-width: 400px) {
+  .selectProduct {
+    &__share {
+      margin-left: auto;
+    }
+
+    &__info {
+      flex: 1 1 auto;
+    }
+
+    &__priceList {
+      flex: 1 1 auto;
+
+      & > * {
+        width: 100%;
+      }
+    }
+  }
+}

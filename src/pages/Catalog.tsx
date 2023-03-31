@@ -1,7 +1,6 @@
-import { type FC, useEffect } from 'react'
+import { type FC } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../store'
-import { getProducts, addProducts } from '../store/productsSlice'
+import { useAppSelector } from '../store'
 import {
   FilterProducts,
   SortProducts,
@@ -16,19 +15,6 @@ export const Catalog: FC = () => {
   const { error, products, status } = useAppSelector(
     (state) => state.productsSlice
   )
-
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(addProducts())
-      return
-    }
-
-    if (status === 'noLocalStorage') {
-      void dispatch(getProducts())
-    }
-  }, [status])
 
   if (status === 'failed') {
     return <div className={styles.catalog__error}>{error}</div>

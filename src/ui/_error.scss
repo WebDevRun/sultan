@@ -1,0 +1,9 @@
+%error-style {
+  text-align: center;
+  color: rgb(223, 121, 121);
+}
+
+@mixin error($font-size) {
+  @extend %error-style;
+  font-size: $font-size;
+}

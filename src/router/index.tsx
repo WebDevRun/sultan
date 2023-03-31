@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import { Catalog, Basket } from '../pages'
+import { Catalog, Basket, Product } from '../pages'
 import { Layout } from '../layouts'
 
 export const router = createBrowserRouter([
@@ -10,11 +10,15 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Catalog />,
+        element: <Navigate to={'/catalog'} replace />,
       },
       {
         path: 'catalog',
         element: <Catalog />,
+      },
+      {
+        path: 'catalog/:id',
+        element: <Product />,
       },
       {
         path: 'basket',
