@@ -104,7 +104,7 @@ export const LeftFilters: FC = () => {
             Показать
           </button>
           <button className={styles.leftFilters__reset} type="reset">
-            <img src="/images/catalog/urn.svg" alt="urn" />
+            <img src="/images/general/urn.svg" alt="urn" />
           </button>
         </div>
       </form>

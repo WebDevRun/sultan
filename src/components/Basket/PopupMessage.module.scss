@@ -1,0 +1,36 @@
+@use '@ui' as ui;
+
+.popupMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__imageContainer {
+    display: flex;
+    max-width: 60px;
+    max-height: 60px;
+    background: ui.$lightYellow;
+    border-radius: 50%;
+    padding: 20px 18px;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    color: ui.$black;
+    margin-bottom: 1.25rem;
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    text-align: center;
+    color: ui.$gray;
+  }
+}

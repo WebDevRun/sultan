@@ -1,0 +1,20 @@
+@use '@ui' as ui;
+
+$borderStyle: 1px dashed
+  rgba(
+    $color: ui.$gray,
+    $alpha: 0.3,
+  );
+
+.productList {
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    border-bottom: $borderStyle;
+
+    &:first-child {
+      border-top: $borderStyle;
+    }
+  }
+}

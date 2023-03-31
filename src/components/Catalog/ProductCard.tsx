@@ -1,7 +1,8 @@
-import { type FC } from 'react'
+import { type MouseEventHandler, type FC } from 'react'
 import { Link } from 'react-router-dom'
 
-import { type IProduct } from '../../store'
+import { useAppDispatch, type IProduct } from '../../store'
+import { appendProduct } from '../../store/basketSlice'
 import { ProductSize, Specifications } from '../general'
 import styles from './ProductCard.module.scss'
 
@@ -10,6 +11,12 @@ interface ProductCardProps {
 }
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
+  const dispatch = useAppDispatch()
+
+  const buttonClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
+    dispatch(appendProduct({ product, count: 1 }))
+  }
+
   return (
     <div className={styles.productCard}>
       <div className={styles.productCard__imageContainer}>
@@ -41,7 +48,11 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
       <div className={styles.productCard__priceAndButton}>
         <p className={styles.productCard__price}>{product.price} ₸</p>
-        <button className={styles.productCard__button} type="button">
+        <button
+          className={styles.productCard__button}
+          type="button"
+          onClick={buttonClickHandler}
+        >
           <span className={styles.productCard__buttonText}>В КОРЗИНУ</span>
           <svg
             width="24"

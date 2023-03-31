@@ -1,49 +1,49 @@
 import { type MouseEventHandler, useState, type FC } from 'react'
-import { type IProduct } from '../../store'
-import { PriceListButton } from '../general'
+import { useDispatch } from 'react-redux'
 
+import { useAppSelector, type IProduct } from '../../store'
+import { appendProduct } from '../../store/basketSlice'
+import { Counter, PriceListButton } from '../general'
 import styles from './SelectProduct.module.scss'
 
 interface SelectProductProps {
-  id: IProduct['id']
-  price: IProduct['price']
+  product: IProduct
 }
 
-export const SelectProduct: FC<SelectProductProps> = ({ id, price }) => {
-  const [count, setCount] = useState(1)
+export const SelectProduct: FC<SelectProductProps> = ({ product }) => {
+  const selectedProducts = useAppSelector(
+    (state) => state.basketSlice.selectedProducts
+  )
+  const [count, setCount] = useState(() => {
+    const findedProduct = selectedProducts?.find(
+      (selectedProduct) => selectedProduct.product.id === product.id
+    )
 
-  const minusClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    if (count <= 1) return
+    if (findedProduct !== undefined) {
+      return findedProduct.count
+    }
 
-    setCount((prev) => prev - 1)
-  }
+    return 1
+  })
+  const dispatch = useDispatch()
 
-  const plusClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    setCount((prev) => prev + 1)
+  const submitClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
+    dispatch(appendProduct({ product, count }))
   }
 
   return (
     <div className={styles.selectProduct}>
-      <p className={styles.selectProduct__price}>{price} ₸</p>
+      <p className={styles.selectProduct__price}>{product.price} ₸</p>
 
       <div className={styles.selectProduct__countContainer}>
-        <button
-          className={styles.selectProduct__button}
-          type="button"
-          onClick={minusClickHandler}
-        >
-          -
-        </button>
-        <span className={styles.selectProduct__count}>{count}</span>
-        <button
-          className={styles.selectProduct__button}
-          type="button"
-          onClick={plusClickHandler}
-        >
-          +
-        </button>
+        <Counter count={count} setCount={setCount} />
       </div>
-      <button className={styles.selectProduct__submit} type="button">
+
+      <button
+        className={styles.selectProduct__submit}
+        type="button"
+        onClick={submitClickHandler}
+      >
         <span>В корзину</span>
         <svg
           width="24"

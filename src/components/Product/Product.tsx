@@ -31,7 +31,7 @@ export const Product: FC<ProductProps> = ({ product }) => {
         </div>
 
         <div className={styles.product__selectProduct}>
-          <SelectProduct price={product.price} id={product.id} />
+          <SelectProduct product={product} />
         </div>
 
         <div className={styles.product__specifications}>
@@ -48,12 +48,7 @@ export const Product: FC<ProductProps> = ({ product }) => {
         <div className={styles.product__description}>
           <ProductAttributes title="Описание">
             <p className={styles.product__descriptionText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              interdum ut justo, vestibulum sagittis iaculis iaculis. Quis
-              mattis vulputate feugiat massa vestibulum duis. Faucibus
-              consectetur aliquet sed pellentesque consequat consectetur congue
-              mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim,
-              malesuada.
+              {product.description}
             </p>
           </ProductAttributes>
         </div>
