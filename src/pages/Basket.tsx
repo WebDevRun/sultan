@@ -7,36 +7,31 @@ import { PopupLayout } from '../layouts'
 import { clearProducts } from '../store/basketSlice'
 
 export const Basket: FC = () => {
-  const { totalCount, selectedProducts, totalPrice } = useAppSelector(
+  const { selectedProducts, totalPrice } = useAppSelector(
     (state) => state.basketSlice
   )
   const dispatch = useAppDispatch()
-  const [isClicked, setIsClicked] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    console.log(totalCount, selectedProducts, totalPrice)
-  }, [selectedProducts])
-
-  useEffect(() => {
-    if (isClicked) dispatch(clearProducts())
-  }, [isClicked])
+    if (isOpen) dispatch(clearProducts())
+  }, [isOpen])
 
   const buyClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    setIsClicked(true)
+    setIsOpen(true)
   }
 
   if (selectedProducts.length === 0) {
-    if (isClicked) {
+    if (isOpen) {
       return (
         <div className={styles.basket}>
           <p className={styles.basket__error}>Нет товаров в корзине</p>
           <div
-            className={[
-              styles.basket__popup,
-              isClicked ? styles.basket__popup : undefined,
-            ].join()}
+            className={
+              isOpen ? styles.basket__popup_open : styles.basket__popup
+            }
           >
-            <PopupLayout onClose={setIsClicked}>
+            <PopupLayout setIsOpen={setIsOpen}>
               <PopupMessage />
             </PopupLayout>
           </div>

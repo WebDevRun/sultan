@@ -18,6 +18,8 @@
     padding: 7.188rem 6.688rem 8.375rem;
     background-color: #ffffff;
     border-radius: 8px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
 
   &__close {
@@ -36,5 +38,13 @@
   &__closeImage {
     width: 12px;
     height: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .popup {
+    &__inner {
+      padding: 30px 15px 40px;
+    }
   }
 }

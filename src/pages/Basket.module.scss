@@ -23,7 +23,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
     margin-bottom: 6.25em;
   }
 
@@ -41,8 +40,22 @@
   &__popup {
     display: none;
 
-    &_active {
+    &_open {
       display: block;
+    }
+  }
+}
+
+@media (max-width: 510px) {
+  .basket {
+    &__productList {
+      margin-bottom: 1.563em;
+    }
+
+    &__buyAndPrice {
+      flex-direction: column-reverse;
+      gap: 1.563em;
+      margin-bottom: 3.125em;
     }
   }
 }

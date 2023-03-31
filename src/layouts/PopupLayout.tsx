@@ -8,13 +8,13 @@ import {
 import styles from './PopupLayout.module.scss'
 
 interface PopupLayoutProps {
-  onClose: Dispatch<React.SetStateAction<boolean>>
+  setIsOpen: Dispatch<React.SetStateAction<boolean>>
   children: ReactNode
 }
 
-export const PopupLayout: FC<PopupLayoutProps> = ({ children, onClose }) => {
+export const PopupLayout: FC<PopupLayoutProps> = ({ children, setIsOpen }) => {
   const buttonClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    onClose(false)
+    setIsOpen(false)
   }
 
   return (

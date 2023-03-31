@@ -2,7 +2,8 @@
 
 .product {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 1.25em;
   margin-bottom: 3.125em;
@@ -74,5 +75,27 @@
 
   &__remove {
     @include ui.button-round(59px, #ffffff);
+  }
+}
+
+@media (max-width: 510px) {
+  .product {
+    &__counter,
+    &__priceContainer {
+      padding-left: 0.938rem;
+      padding-right: 0.938rem;
+    }
+
+    &__counter {
+      border-left: none;
+    }
+
+    &__priceContainer {
+      font-size: 1rem;
+    }
+
+    &__removeContainer {
+      padding-left: 0.938rem;
+    }
   }
 }
