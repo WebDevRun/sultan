@@ -12,7 +12,7 @@ import styles from './Catalog.module.scss'
 import { useCatalog } from './hooks/useCatalog'
 
 export const Catalog: FC = () => {
-  const { error, products, status } = useAppSelector(
+  const { error, products, status, typesOfCare } = useAppSelector(
     (state) => state.productsSlice
   )
 
@@ -20,7 +20,7 @@ export const Catalog: FC = () => {
     return <div className={styles.catalog__error}>{error}</div>
   }
 
-  const [filters, filteredProducts] = useCatalog(products)
+  const filteredProducts = useCatalog(products)
 
   return (
     <div className={styles.catalog}>
@@ -30,7 +30,7 @@ export const Catalog: FC = () => {
       </div>
 
       <div className={styles.catalog__filter}>
-        <FilterProducts filters={filters} />
+        <FilterProducts filters={typesOfCare} />
       </div>
 
       <div className={styles.catalog__leftFilters}>
@@ -38,7 +38,7 @@ export const Catalog: FC = () => {
           <LeftFilters />
         </div>
         <div className={styles.catalog__filterProducts}>
-          <FilterProducts filters={filters} isLeft={true} />
+          <FilterProducts filters={typesOfCare} isLeft={true} />
         </div>
       </div>
       <div className={styles.catalog__productList}>

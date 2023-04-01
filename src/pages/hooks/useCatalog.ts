@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 
 import { type IProduct } from '../../store/productsSlice'
 
-export const useCatalog = (products: IProduct[]): [string[], IProduct[]] => {
+export const useCatalog = (products: IProduct[]): IProduct[] => {
   const [params] = useSearchParams()
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([])
 
@@ -58,8 +58,5 @@ export const useCatalog = (products: IProduct[]): [string[], IProduct[]] => {
     setFilteredProducts(targetProducts)
   }, [params, products])
 
-  const typesOfCare = products.map((product) => product.typeOfCare)
-  const filters = [...new Set(typesOfCare.flat())]
-
-  return [filters, filteredProducts]
+  return filteredProducts
 }

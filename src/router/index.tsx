@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import { Catalog, Basket, Product } from '../pages'
+import { Catalog, Basket, Product, Admin } from '../pages'
 import { Layout } from '../layouts'
 
 export const router = createBrowserRouter([
@@ -23,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: 'basket',
         element: <Basket />,
+      },
+      {
+        path: 'admin',
+        element: <Admin />,
       },
     ],
   },

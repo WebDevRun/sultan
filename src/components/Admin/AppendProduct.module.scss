@@ -1,0 +1,21 @@
+@use '@ui' as ui;
+
+.appendProduct {
+  margin-top: 2em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: ui.$border-dashed;
+
+  &__summary {
+    display: block;
+  }
+
+  &__info {
+    @include ui.button-with-text(15px, 20px, 0, 1.2rem, #ffffff);
+  }
+
+  &__image {
+    max-width: 32px;
+    max-height: 32px;
+  }
+}

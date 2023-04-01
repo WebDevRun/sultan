@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-// import type { PayloadAction } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export const getProducts = createAsyncThunk<
   IProduct[],
@@ -33,12 +33,14 @@ export interface IProduct {
 
 export interface IProducts {
   products: IProduct[]
+  typesOfCare: string[]
   error: string | undefined
   status: 'idle' | 'noLocalStorage' | 'pending' | 'succeeded' | 'failed'
 }
 
 const initialState: IProducts = {
   products: [],
+  typesOfCare: [],
   error: undefined,
   status: 'idle',
 }
@@ -56,7 +58,28 @@ const productsSlice = createSlice({
       }
 
       state.products = JSON.parse(localProducts)
+
+      const typesOfCare = state.products.map((product) => product.typeOfCare)
+      const filters = [...new Set(typesOfCare.flat())]
+      state.typesOfCare = filters
+
       state.status = 'succeeded'
+    },
+    setProduct(state, action: PayloadAction<IProduct>) {
+      const findIndex = state.products.findIndex(
+        (product) => product.id === action.payload.id
+      )
+
+      if (findIndex >= 0) {
+        state.products[findIndex] = action.payload
+      } else {
+        state.products.push(action.payload)
+      }
+    },
+    removeProduct(state, action: PayloadAction<IProduct['id']>) {
+      state.products = state.products.filter(
+        (product) => product.id !== action.payload
+      )
     },
   },
   extraReducers: (builder) => {
@@ -78,5 +101,5 @@ const productsSlice = createSlice({
   },
 })
 
-export const { addProducts } = productsSlice.actions
+export const { addProducts, setProduct, removeProduct } = productsSlice.actions
 export default productsSlice.reducer
