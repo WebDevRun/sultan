@@ -15,12 +15,11 @@ export const Catalog: FC = () => {
   const { error, products, status, typesOfCare } = useAppSelector(
     (state) => state.productsSlice
   )
+  const filteredProducts = useCatalog(products)
 
   if (status === 'failed') {
     return <div className={styles.catalog__error}>{error}</div>
   }
-
-  const filteredProducts = useCatalog(products)
 
   return (
     <div className={styles.catalog}>
