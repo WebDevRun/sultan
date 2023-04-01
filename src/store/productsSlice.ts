@@ -75,11 +75,14 @@ const productsSlice = createSlice({
       } else {
         state.products.push(action.payload)
       }
+
+      localStorage.setItem('products', JSON.stringify(state.products))
     },
     removeProduct(state, action: PayloadAction<IProduct['id']>) {
       state.products = state.products.filter(
         (product) => product.id !== action.payload
       )
+      localStorage.setItem('products', JSON.stringify(state.products))
     },
   },
   extraReducers: (builder) => {
