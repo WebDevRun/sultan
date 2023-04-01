@@ -6,20 +6,27 @@
 }
 
 .selectProduct {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   align-items: center;
   gap: 0.625em;
 
   &__price {
+    grid-column: 1/3;
     font-weight: 800;
     font-size: 1.875rem;
     line-height: 1.3;
     color: ui.$black;
   }
 
+  &__count {
+    grid-column: 3/4;
+    justify-self: center;
+  }
+
   &__submit {
     @include ui.button-with-text(18px, 40px, 12px, 0.625rem, #ffffff);
+    grid-column: 4/6;
+    justify-self: left;
   }
 
   &__share {
@@ -28,6 +35,8 @@
     padding: 1.688em;
     border: none;
     cursor: pointer;
+    grid-column: 1/3;
+    justify-self: left;
   }
 
   &__image {
@@ -37,8 +46,8 @@
 
   &__info {
     @extend %borders;
-    flex: 0 1 320px;
     padding: 1.313em 2.25em;
+    grid-column: 3/5;
   }
 
   &__text {
@@ -47,24 +56,99 @@
     text-align: center;
     color: ui.$gray;
   }
+
+  &__priceList {
+    grid-column: 5/6;
+  }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1150px) {
   .selectProduct {
+    &__price {
+      grid-column: 1/2;
+    }
+
+    &__count {
+      grid-column: 2/3;
+      justify-self: left;
+    }
+
+    &__submit {
+      grid-column: 1/2;
+    }
+
     &__share {
-      margin-left: auto;
+      grid-column: 2/3;
     }
 
     &__info {
-      flex: 1 1 auto;
+      grid-column: 1/3;
     }
 
     &__priceList {
-      flex: 1 1 auto;
+      grid-column: 1/2;
 
       & > * {
         width: 100%;
       }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .selectProduct {
+    &__price {
+      grid-column: 1/3;
+    }
+
+    &__count {
+      grid-column: 3/4;
+      justify-self: center;
+    }
+
+    &__submit {
+      grid-column: 4/5;
+    }
+
+    &__share {
+      grid-column: 1/2;
+    }
+
+    &__info {
+      grid-column: 2/4;
+    }
+
+    &__priceList {
+      grid-column: 4/5;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .selectProduct {
+    &__price {
+      grid-column: 1/2;
+    }
+
+    &__count {
+      grid-column: 2/3;
+      justify-self: left;
+    }
+
+    &__submit {
+      grid-column: 1/2;
+    }
+
+    &__share {
+      grid-column: 2/3;
+    }
+
+    &__info {
+      grid-column: 1/3;
+    }
+
+    &__priceList {
+      grid-column: 1/3;
     }
   }
 }

@@ -35,7 +35,7 @@ export const SelectProduct: FC<SelectProductProps> = ({ product }) => {
     <div className={styles.selectProduct}>
       <p className={styles.selectProduct__price}>{product.price} ₸</p>
 
-      <div className={styles.selectProduct__countContainer}>
+      <div className={styles.selectProduct__count}>
         <Counter count={count} setCount={setCount} />
       </div>
 
@@ -66,6 +66,7 @@ export const SelectProduct: FC<SelectProductProps> = ({ product }) => {
           alt="share"
         />
       </button>
+
       <div className={styles.selectProduct__info}>
         <p className={styles.selectProduct__text}>
           При покупке от <b>10 000 ₸</b> бесплатная доставка по Кокчетаву и
