@@ -7,7 +7,7 @@ export const getProducts = createAsyncThunk<
   { rejectValue: string }
 >('products/getProducts', async (_, { rejectWithValue }) => {
   try {
-    const response = await fetch('../db/index.json')
+    const response = await fetch('/db/index.json')
 
     if (response.ok) return await response.json()
 
