@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 
-import { Main, Header, Menu, Footer } from '../components'
+import { Main, Header, Menu, Footer, Breadcrumbs } from '../components'
 import styles from './Layout.module.scss'
 
 export const Layout: FC = () => {
@@ -8,6 +8,7 @@ export const Layout: FC = () => {
     <div className={styles.layout}>
       <Menu />
       <Header />
+      <Breadcrumbs />
       <Main />
       <Footer />
     </div>

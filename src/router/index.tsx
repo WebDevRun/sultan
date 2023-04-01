@@ -3,6 +3,13 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { Catalog, Basket, Product, Admin } from '../pages'
 import { Layout } from '../layouts'
 
+export const pathnames = {
+  '/': 'Главная',
+  catalog: 'Косметика и гигиена',
+  basket: 'Корзина',
+  admin: 'Админка',
+}
+
 export const router = createBrowserRouter([
   {
     path: '/',
