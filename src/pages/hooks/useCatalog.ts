@@ -31,8 +31,12 @@ export const useCatalog = (products: IProduct[]): IProduct[] => {
 
       const typesOfCare = params.get('typesOfCare')
 
-      if (typesOfCare !== null && !product.typeOfCare.includes(typesOfCare))
-        isTargetProduct = false
+      if (typesOfCare !== null && typesOfCare !== '') {
+        const typesOfCareArray = typesOfCare.split(',')
+        product.typeOfCare.forEach((type) => {
+          if (!typesOfCareArray.includes(type)) isTargetProduct = false
+        })
+      }
 
       return isTargetProduct
     })

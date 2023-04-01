@@ -1,4 +1,4 @@
-import { type MouseEventHandler, type FC } from 'react'
+import { FC, useState, useEffect, ChangeEventHandler } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import styles from './FilterProducts.module.scss'
@@ -14,6 +14,9 @@ export const FilterProducts: FC<FilterProductsProps> = ({
   isLeft = false,
 }) => {
   const [params, setParams] = useSearchParams()
+  const [typesOfCare, setTypesOfCare] = useState<string[]>(
+    () => params.get('typesOfCare')?.split(',') || []
+  )
 
   const setFilterProductsStyles = setModificationToStyle(
     styles.filterProducts,
@@ -39,12 +42,26 @@ export const FilterProducts: FC<FilterProductsProps> = ({
     styles.filterProducts__text_top
   )
 
-  const filterProductsClickHandler: MouseEventHandler<HTMLInputElement> = (
+  const filterProductsClickHandler: ChangeEventHandler<HTMLInputElement> = (
     event
   ) => {
-    params.set('typesOfCare', event.currentTarget.value)
-    setParams(params)
+    setTypesOfCare((prev) => {
+      const value = event.target.value
+
+      if (prev.includes(value)) {
+        prev = prev.filter((type) => type !== value)
+      } else {
+        prev = [...prev, event.target.value]
+      }
+
+      return prev
+    })
   }
+
+  useEffect(() => {
+    params.set('typesOfCare', typesOfCare.join(','))
+    setParams(params)
+  }, [typesOfCare])
 
   return (
     <ul className={setFilterProductsStyles(isLeft)}>
@@ -53,12 +70,12 @@ export const FilterProducts: FC<FilterProductsProps> = ({
           <li className={setElementStyles(isLeft)} key={filter}>
             <label className={setLabelStyles(isLeft)}>
               <input
-                className={styles.filterProducts__radio}
-                type="radio"
+                className={styles.filterProducts__checkbox}
+                type="checkbox"
                 name="typesOfCare"
                 value={filter}
-                defaultChecked={params.get('typesOfCare') === filter}
-                onClick={filterProductsClickHandler}
+                // defaultChecked={params.get('typesOfCare') === filter}
+                onChange={filterProductsClickHandler}
               />
               <span className={setTextStyles(isLeft)}>{filter}</span>
             </label>

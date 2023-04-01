@@ -29,17 +29,22 @@ export const Catalog: FC = () => {
         <SortProducts />
       </div>
 
-      <div className={styles.catalog__filter}>
-        <FilterProducts filters={typesOfCare} />
-      </div>
+      {typesOfCare.length && (
+        <div className={styles.catalog__filter}>
+          <FilterProducts filters={typesOfCare} />
+        </div>
+      )}
 
       <div className={styles.catalog__leftFilters}>
         <div className={styles.catalog__priceAndManufacturer}>
           <LeftFilters />
         </div>
-        <div className={styles.catalog__filterProducts}>
-          <FilterProducts filters={typesOfCare} isLeft={true} />
-        </div>
+
+        {typesOfCare.length && (
+          <div className={styles.catalog__filterProducts}>
+            <FilterProducts filters={typesOfCare} isLeft={true} />
+          </div>
+        )}
       </div>
       <div className={styles.catalog__productList}>
         <ProductList products={filteredProducts} />
