@@ -19,4 +19,45 @@
       border-right: ui.$border-dashed;
     }
   }
+
+  &__goBack {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .breadcrumbs {
+    &__container {
+      display: none;
+    }
+
+    &__goBack {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background-color: inherit;
+      border: none;
+    }
+
+    &__goBackImageContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba($color: ui.$lightYellow, $alpha: 0.3);
+      border: none;
+      cursor: pointer;
+      padding: 10px 13px;
+      border-radius: 50%;
+      transform: rotate(180deg);
+      color: ui.$gray;
+    }
+
+    &__goBackText {
+      font-weight: 600;
+      font-size: 0.625rem;
+      line-height: 1.2;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+  }
 }
