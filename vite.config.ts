@@ -11,4 +11,12 @@ export default defineConfig({
       '@ui': path.resolve('src', 'ui'),
     },
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve('index.html'),
+        nested: path.resolve('404.html'),
+      },
+    },
+  },
 })
