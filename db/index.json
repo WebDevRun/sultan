@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "url": "/images/catalog/AOS.jpg",
+    "url": "./images/catalog/AOS.jpg",
     "name": "AOS средство для мытья посуды Crystal",
     "typeSize": "мл",
     "size": "450",
@@ -14,7 +14,7 @@
   },
   {
     "id": "2",
-    "url": "/images/catalog/AOS.jpg",
+    "url": "./images/catalog/AOS.jpg",
     "name": "AOS средство для мытья посуды Crystal",
     "typeSize": "мл",
     "size": "500",
@@ -27,7 +27,7 @@
   },
   {
     "id": "3",
-    "url": "/images/catalog/AOS.jpg",
+    "url": "./images/catalog/AOS.jpg",
     "name": "AOS средство для мытья посуды Crystal",
     "typeSize": "мл",
     "size": "600",
@@ -40,7 +40,7 @@
   },
   {
     "id": "4",
-    "url": "/images/catalog/ARIEL.jpg",
+    "url": "./images/catalog/ARIEL.jpg",
     "name": "ARIEL Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
     "typeSize": "г",
     "size": "15X28.8",
@@ -53,7 +53,7 @@
   },
   {
     "id": "5",
-    "url": "/images/catalog/BIMAX.jpg",
+    "url": "./images/catalog/BIMAX.jpg",
     "name": "BIMAX Порошок стиральный Автомат 100 пятен COMPACT",
     "typeSize": "г",
     "size": "1500",
@@ -66,7 +66,7 @@
   },
   {
     "id": "6",
-    "url": "/images/catalog/ARIEL.jpg",
+    "url": "./images/catalog/ARIEL.jpg",
     "name": "ARIEL Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
     "typeSize": "г",
     "size": "15X28.8",
@@ -79,7 +79,7 @@
   },
   {
     "id": "7",
-    "url": "/images/catalog/ARIEL.jpg",
+    "url": "./images/catalog/ARIEL.jpg",
     "name": "BIMAX Порошок стиральный Автомат 100 пятен COMPACT",
     "typeSize": "г",
     "size": "1500",
@@ -92,7 +92,7 @@
   },
   {
     "id": "8",
-    "url": "/images/catalog/AOS.jpg",
+    "url": "./images/catalog/AOS.jpg",
     "name": "AOS средство для мытья посуды Crystal",
     "typeSize": "мл",
     "size": "450",
@@ -105,7 +105,7 @@
   },
   {
     "id": "9",
-    "url": "/images/catalog/AOS.jpg",
+    "url": "./images/catalog/AOS.jpg",
     "name": "AOS средство для мытья посуды Crystal",
     "typeSize": "мл",
     "size": "500",
@@ -118,7 +118,7 @@
   },
   {
     "id": "10",
-    "url": "/images/catalog/AOS.jpg",
+    "url": "./images/catalog/AOS.jpg",
     "name": "AOS средство для мытья посуды Crystal",
     "typeSize": "мл",
     "size": "600",
@@ -131,7 +131,7 @@
   },
   {
     "id": "11",
-    "url": "/images/catalog/ARIEL.jpg",
+    "url": "./images/catalog/ARIEL.jpg",
     "name": "ARIEL Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
     "typeSize": "г",
     "size": "15X28.8",
@@ -144,7 +144,7 @@
   },
   {
     "id": "12",
-    "url": "/images/catalog/BIMAX.jpg",
+    "url": "./images/catalog/BIMAX.jpg",
     "name": "BIMAX Порошок стиральный Автомат 100 пятен COMPACT",
     "typeSize": "г",
     "size": "1500",
@@ -157,7 +157,7 @@
   },
   {
     "id": "13",
-    "url": "/images/catalog/ARIEL.jpg",
+    "url": "./images/catalog/ARIEL.jpg",
     "name": "ARIEL Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
     "typeSize": "г",
     "size": "15X28.8",
@@ -170,7 +170,7 @@
   },
   {
     "id": "14",
-    "url": "/images/catalog/BIMAX.jpg",
+    "url": "./images/catalog/BIMAX.jpg",
     "name": "BIMAX Порошок стиральный Автомат 100 пятен COMPACT",
     "typeSize": "г",
     "size": "1500",
@@ -183,7 +183,7 @@
   },
   {
     "id": "15",
-    "url": "/images/catalog/BIMAX.jpg",
+    "url": "./images/catalog/BIMAX.jpg",
     "name": "BIMAX Порошок стиральный Автомат 100 пятен COMPACT",
     "typeSize": "г",
     "size": "1500",
@@ -196,7 +196,7 @@
   },
   {
     "id": "16",
-    "url": "/images/catalog/ARIEL.jpg",
+    "url": "./images/catalog/ARIEL.jpg",
     "name": "ARIEL Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
     "typeSize": "г",
     "size": "15X28.8",
@@ -209,7 +209,7 @@
   },
   {
     "id": "17",
-    "url": "/images/catalog/BIMAX.jpg",
+    "url": "./images/catalog/BIMAX.jpg",
     "name": "BIMAX Порошок стиральный Автомат 100 пятен COMPACT",
     "typeSize": "г",
     "size": "1500",
@@ -222,7 +222,7 @@
   },
   {
     "id": "18",
-    "url": "/images/catalog/ARIEL.jpg",
+    "url": "./images/catalog/ARIEL.jpg",
     "name": "ARIEL Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
     "typeSize": "г",
     "size": "15X28.8",
@@ -235,7 +235,7 @@
   },
   {
     "id": "19",
-    "url": "/images/catalog/ARIEL.jpg",
+    "url": "./images/catalog/ARIEL.jpg",
     "name": "ARIEL Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
     "typeSize": "г",
     "size": "15X28.8",
@@ -248,7 +248,7 @@
   },
   {
     "id": "20",
-    "url": "/images/catalog/BIMAX.jpg",
+    "url": "./images/catalog/BIMAX.jpg",
     "name": "BIMAX Порошок стиральный Автомат 100 пятен COMPACT",
     "typeSize": "г",
     "size": "1500",
@@ -261,7 +261,7 @@
   },
   {
     "id": "21",
-    "url": "/images/catalog/ARIEL.jpg",
+    "url": "./images/catalog/ARIEL.jpg",
     "name": "ARIEL Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
     "typeSize": "г",
     "size": "15X28.8",
@@ -274,7 +274,7 @@
   },
   {
     "id": "22",
-    "url": "/images/catalog/BIMAX.jpg",
+    "url": "./images/catalog/BIMAX.jpg",
     "name": "BIMAX Порошок стиральный Автомат 100 пятен COMPACT",
     "typeSize": "г",
     "size": "1500",
@@ -287,7 +287,7 @@
   },
   {
     "id": "23",
-    "url": "/images/catalog/BIMAX.jpg",
+    "url": "./images/catalog/AOS.jpg",
     "name": "BIMAX Порошок стиральный Автомат 100 пятен COMPACT",
     "typeSize": "г",
     "size": "1500",
