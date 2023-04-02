@@ -6,6 +6,7 @@ import {
 } from 'react'
 
 import styles from './PopupLayout.module.scss'
+import close from '/images/general/close.svg'
 
 interface PopupLayoutProps {
   setIsOpen: Dispatch<React.SetStateAction<boolean>>
@@ -25,11 +26,7 @@ export const PopupLayout: FC<PopupLayoutProps> = ({ children, setIsOpen }) => {
           type="button"
           onClick={buttonClickHandler}
         >
-          <img
-            className={styles.popup__closeImage}
-            src="/images/general/close.svg"
-            alt="close"
-          />
+          <img className={styles.popup__closeImage} src={close} alt="close" />
         </button>
         {children}
       </div>

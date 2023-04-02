@@ -5,6 +5,7 @@ import { ProductSize } from '../general'
 import styles from './Product.module.scss'
 import { removeProduct } from '../../store/productsSlice'
 import { ProductForm } from './ProductForm'
+import urn from '/images/general/urn.svg'
 
 interface ProductProps {
   product: IProduct
@@ -34,7 +35,7 @@ export const Product: FC<ProductProps> = ({ product }) => {
         </div>
 
         <button className={styles.product__remove} onClick={removeClickHandler}>
-          <img src="/images/general/urn.svg" alt="urn" />
+          <img src={urn} alt="urn" />
         </button>
       </summary>
 

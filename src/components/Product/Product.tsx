@@ -16,7 +16,7 @@ export const Product: FC<ProductProps> = ({ product }) => {
       <div className={styles.product__imageContainer}>
         <img
           className={styles.product__image}
-          src={product.url}
+          src={`../${product.url}`}
           alt={product.name}
         />
       </div>

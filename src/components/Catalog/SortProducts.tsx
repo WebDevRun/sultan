@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useSortProducts } from './hooks/useSortProducts'
 
 import styles from './SortProducts.module.scss'
+import triangle from '/images/general/triangle.png'
 
 export const SortProducts: FC = () => {
   const [params, setParams] = useSearchParams()
@@ -48,11 +49,7 @@ export const SortProducts: FC = () => {
           checked={checkboxStatus}
           onChange={checkboxChangeHandler}
         />
-        <img
-          className={styles.sort__image}
-          src="/images/general/triangle.png"
-          alt="triangle"
-        />
+        <img className={styles.sort__image} src={triangle} alt="triangle" />
       </label>
     </form>
   )

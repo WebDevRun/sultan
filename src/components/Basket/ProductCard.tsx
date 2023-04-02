@@ -4,6 +4,7 @@ import { useAppDispatch, type ISelectedProduct } from '../../store'
 import { appendProduct, removeProduct } from '../../store/basketSlice'
 import { Counter, ProductSize } from '../general'
 import styles from './ProductCard.module.scss'
+import urn from '/images/general/urn.svg'
 
 interface ProductCardProps {
   selectedProduct: ISelectedProduct
@@ -18,7 +19,6 @@ export const ProductCard: FC<ProductCardProps> = ({ selectedProduct }) => {
   }, [count])
 
   const removeClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    console.log('click')
     dispatch(removeProduct(selectedProduct.product.id))
   }
 
@@ -58,7 +58,7 @@ export const ProductCard: FC<ProductCardProps> = ({ selectedProduct }) => {
             type="button"
             onClick={removeClickHandler}
           >
-            <img src="/images/general/urn.svg" alt="urn" />
+            <img src={urn} alt="urn" />
           </button>
         </div>
       </div>

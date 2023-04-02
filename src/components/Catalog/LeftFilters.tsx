@@ -9,6 +9,7 @@ import { useSearchParams } from 'react-router-dom'
 import { PriceFilterPart } from './PriceFilterPart'
 import { ManufacturerFilterPart } from './ManufacturerFilterPart'
 import styles from './LeftFilters.module.scss'
+import urn from '/images/general/urn.svg'
 
 export const LeftFilters: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -104,7 +105,7 @@ export const LeftFilters: FC = () => {
             Показать
           </button>
           <button className={styles.leftFilters__reset} type="reset">
-            <img src="/images/general/urn.svg" alt="urn" />
+            <img src={urn} alt="urn" />
           </button>
         </div>
       </form>

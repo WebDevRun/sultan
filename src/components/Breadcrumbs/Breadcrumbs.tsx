@@ -11,11 +11,6 @@ export const Breadcrumbs: FC = () => {
   const [paths, setPaths] = useState<Record<string, string>>(pathnames)
   const location = useLocation()
 
-  const crumbs = location.pathname.split('/').map((chank) => {
-    if (chank === '') return '/'
-    return chank
-  })
-
   useEffect(() => {
     const productPathnames = products.reduce<Record<string, string>>(
       (acc, product) => {
@@ -27,6 +22,11 @@ export const Breadcrumbs: FC = () => {
 
     setPaths((prev) => ({ ...prev, ...productPathnames }))
   }, [products])
+
+  const crumbs = location.pathname.split('/').map((chank) => {
+    if (chank === '') return '/'
+    return chank
+  })
 
   return (
     <div className={styles.breadcrumbs}>

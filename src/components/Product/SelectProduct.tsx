@@ -5,6 +5,7 @@ import { useAppSelector, type IProduct } from '../../store'
 import { appendProduct } from '../../store/basketSlice'
 import { Counter, PriceListButton } from '../general'
 import styles from './SelectProduct.module.scss'
+import share from '/images/product/share.svg'
 
 interface SelectProductProps {
   product: IProduct
@@ -60,11 +61,7 @@ export const SelectProduct: FC<SelectProductProps> = ({ product }) => {
       </button>
 
       <button className={styles.selectProduct__share} type="button">
-        <img
-          className={styles.selectProduct__image}
-          src="/images/product/share.svg"
-          alt="share"
-        />
+        <img className={styles.selectProduct__image} src={share} alt="share" />
       </button>
 
       <div className={styles.selectProduct__info}>

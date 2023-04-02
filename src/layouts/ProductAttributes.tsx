@@ -1,6 +1,7 @@
 import { type ReactNode, type FC } from 'react'
 
 import styles from './ProductAttributes.module.scss'
+import triangle from '/images/general/triangle.png'
 
 interface ProductAttributesProps {
   title: string
@@ -17,7 +18,7 @@ export const ProductAttributes: FC<ProductAttributesProps> = ({
         <span className={styles.details__titleText}>{title}</span>
         <img
           className={styles.details__titleImage}
-          src="/images/general/triangle.png"
+          src={triangle}
           alt="triangle"
         />
       </summary>
