@@ -11,6 +11,21 @@ export const useCatalog = (products: IProduct[]): IProduct[] => {
     const targetProducts = products.filter((product) => {
       let isTargetProduct = true
 
+      const typesOfCare = params.get('typesOfCare')
+
+      if (typesOfCare !== null && typesOfCare !== '') {
+        const typesOfCareArray = typesOfCare.split(',')
+
+        for (const type of product.typeOfCare) {
+          if (typesOfCareArray.includes(type)) {
+            isTargetProduct = true
+            break
+          } else {
+            isTargetProduct = false
+          }
+        }
+      }
+
       const manufacturers = params.get('manufacturer')
 
       if (manufacturers?.includes(product.manufacturer) === false)
@@ -28,20 +43,6 @@ export const useCatalog = (products: IProduct[]): IProduct[] => {
         product.price >= Number(priceEnd)
 
       if (isMorePriceStart || isLessPriceEnd) isTargetProduct = false
-
-      const typesOfCare = params.get('typesOfCare')
-
-      if (typesOfCare !== null && typesOfCare !== '') {
-        const typesOfCareArray = typesOfCare.split(',')
-
-        for (const type of product.typeOfCare) {
-          if (!typesOfCareArray.includes(type)) {
-            isTargetProduct = false
-          } else {
-            isTargetProduct = true
-          }
-        }
-      }
 
       return isTargetProduct
     })

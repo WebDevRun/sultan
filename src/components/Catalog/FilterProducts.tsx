@@ -20,6 +20,11 @@ export const FilterProducts: FC<FilterProductsProps> = ({
 
   useEffect(() => {
     params.set('typesOfCare', typesOfCare.join(','))
+
+    if (typesOfCare.length === 0) {
+      params.delete('typesOfCare')
+    }
+
     setParams(params)
   }, [typesOfCare])
 
@@ -68,14 +73,15 @@ export const FilterProducts: FC<FilterProductsProps> = ({
       {filters.map((filter) => {
         return (
           <li className={setElementStyles(isLeft)} key={filter}>
-            <label className={setLabelStyles(isLeft)}>
-              <input
-                className={styles.filterProducts__checkbox}
-                type="checkbox"
-                name="typesOfCare"
-                value={filter}
-                onChange={filterProductsClickHandler}
-              />
+            <input
+              className={styles.filterProducts__checkbox}
+              type="checkbox"
+              name="typesOfCare"
+              value={filter}
+              id={filter}
+              onChange={filterProductsClickHandler}
+            />
+            <label htmlFor={filter} className={setLabelStyles(isLeft)}>
               <span className={setTextStyles(isLeft)}>{filter}</span>
             </label>
           </li>

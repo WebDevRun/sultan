@@ -38,6 +38,10 @@
 
   &__checkbox {
     display: none;
+
+    &:checked + .filterProducts__label {
+      font-weight: 600;
+    }
   }
 
   &__text {
