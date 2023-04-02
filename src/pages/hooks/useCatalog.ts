@@ -33,9 +33,14 @@ export const useCatalog = (products: IProduct[]): IProduct[] => {
 
       if (typesOfCare !== null && typesOfCare !== '') {
         const typesOfCareArray = typesOfCare.split(',')
-        product.typeOfCare.forEach((type) => {
-          if (!typesOfCareArray.includes(type)) isTargetProduct = false
-        })
+
+        for (const type of product.typeOfCare) {
+          if (!typesOfCareArray.includes(type)) {
+            isTargetProduct = false
+          } else {
+            isTargetProduct = true
+          }
+        }
       }
 
       return isTargetProduct

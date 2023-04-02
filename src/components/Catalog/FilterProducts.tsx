@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, ChangeEventHandler } from 'react'
+import { FC, useState, useEffect, ChangeEventHandler, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import styles from './FilterProducts.module.scss'
