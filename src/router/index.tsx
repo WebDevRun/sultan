@@ -6,6 +6,7 @@ import {
 
 import { Catalog, Basket, Product, Admin } from '../pages'
 import { Layout } from '../layouts'
+import { Page404 } from '../pages/Page404'
 
 export const pathnames = {
   '/': 'Главная',
@@ -40,11 +41,15 @@ export const router = createBrowserRouter(
           path: 'admin',
           element: <Admin />,
         },
+        {
+          path: 'page404',
+          element: <Page404 />,
+        },
       ],
     },
     {
       path: '*',
-      element: <Navigate to={'/catalog'} replace />,
+      element: <Navigate to={'/page404'} replace />,
     },
   ],
   {
