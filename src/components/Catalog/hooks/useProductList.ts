@@ -39,6 +39,7 @@ export const useProductList = (
     }
 
     setSplitedProducts(splitedArray)
+    setCurrentPage(1)
   }, [products])
 
   return { productCountOnPage, splitedProducts, currentPage, setCurrentPage }
