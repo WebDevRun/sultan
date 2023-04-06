@@ -3,8 +3,10 @@ import { useAppSelector } from '../../../store'
 
 export const useuseManufacturerFilterPart = (): [
   Dispatch<React.SetStateAction<string>>,
+  Dispatch<React.SetStateAction<'four' | 'all'>>,
   string[],
-  Record<string, number>
+  Record<string, number>,
+  'four' | 'all'
 ] => {
   const products = useAppSelector((state) => state.productsSlice.products)
 
@@ -15,6 +17,9 @@ export const useuseManufacturerFilterPart = (): [
   const [manufacturers, setManufacturers] = useState<string[]>([])
   const [filteredManufacturers, setFilteredManufacturers] =
     useState<string[]>(manufacturers)
+  const [manufacturerListCount, setManufacturerListCount] = useState<
+    'four' | 'all'
+  >('four')
 
   useEffect(() => {
     setManufacturerCount(() => {
@@ -37,12 +42,22 @@ export const useuseManufacturerFilterPart = (): [
   }, [manufacturerCount])
 
   useEffect(() => {
-    setFilteredManufacturers(
-      manufacturers.filter((manufacturer) =>
-        manufacturer.toLowerCase().includes(searchString.toLowerCase())
-      )
+    let filteredManufacturers = manufacturers.filter((manufacturer) =>
+      manufacturer.toLowerCase().includes(searchString.toLowerCase())
     )
-  }, [searchString, manufacturers])
 
-  return [setSearchString, filteredManufacturers, manufacturerCount]
+    if (manufacturerListCount === 'four') {
+      filteredManufacturers = filteredManufacturers.slice(0, 4)
+    }
+
+    setFilteredManufacturers(filteredManufacturers)
+  }, [searchString, manufacturers, manufacturerListCount])
+
+  return [
+    setSearchString,
+    setManufacturerListCount,
+    filteredManufacturers,
+    manufacturerCount,
+    manufacturerListCount,
+  ]
 }
