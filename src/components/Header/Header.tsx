@@ -21,7 +21,7 @@ export const Header: FC = () => {
               <Catalog />
             </div>
             <div className={styles.header__search}>
-              <Search isHeader={true} />
+              <Search position="header" />
             </div>
           </div>
 

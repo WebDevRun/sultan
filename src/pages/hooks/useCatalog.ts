@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useAppSelector } from '../../store'
 
 import { IProduct } from '../../store/productsSlice'
 
-export const useCatalog = (products: IProduct[]): IProduct[] => {
+export const useCatalog = () => {
+  const { error, products, status, typesOfCare } = useAppSelector(
+    (state) => state.productsReducer
+  )
   const [params] = useSearchParams()
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([])
 
@@ -68,5 +72,5 @@ export const useCatalog = (products: IProduct[]): IProduct[] => {
     setFilteredProducts(targetProducts)
   }, [params, products])
 
-  return filteredProducts
+  return { error, status, typesOfCare, filteredProducts }
 }

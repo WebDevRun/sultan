@@ -1,7 +1,7 @@
-import { ChangeEventHandler, FC } from 'react'
+import { FC } from 'react'
 
 import { Search } from '../general'
-import { useuseManufacturerFilterPart } from './hooks/useManufacturerFilterPart'
+import { useManufacturerFilterPart } from './hooks/useManufacturerFilterPart'
 import styles from './ManufacturerFilterPart.module.scss'
 import triangle from '/images/general/triangle.png'
 
@@ -12,21 +12,13 @@ interface ManufacturerFilterPartProps {
 export const ManufacturerFilterPart: FC<ManufacturerFilterPartProps> = ({
   manufacturers = null,
 }) => {
-  const [
+  const {
     setSearchString,
-    setManufacturerListCount,
     filteredManufacturers,
     manufacturerCount,
     manufacturerListCount,
-  ] = useuseManufacturerFilterPart()
-
-  const buttonClickHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
-    if (event.target.checked) {
-      setManufacturerListCount('all')
-    } else {
-      setManufacturerListCount('four')
-    }
-  }
+    buttonClickHandler,
+  } = useManufacturerFilterPart()
 
   return (
     <div className={styles.manufacturer}>

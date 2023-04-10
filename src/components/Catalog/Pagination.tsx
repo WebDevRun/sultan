@@ -1,4 +1,4 @@
-import { type MouseEventHandler, type Dispatch, type FC } from 'react'
+import { Dispatch, FC } from 'react'
 
 import { usePagination } from './hooks/usePagination'
 import styles from './Pagination.module.scss'
@@ -14,30 +14,13 @@ export const Pagination: FC<PaginationProps> = ({
   productCountOnPage = 15,
   setValue,
 }) => {
-  const [pages, currentPage, setCurrentPage] = usePagination(
-    productsLength,
-    productCountOnPage,
-    setValue
-  )
-
-  const prevClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    setCurrentPage((page) => {
-      if (page <= 1) return 1
-      return page - 1
-    })
-  }
-
-  const pageClickHandler: MouseEventHandler<HTMLInputElement> = (event) => {
-    const value = event.currentTarget.value
-    setCurrentPage(Number(value))
-  }
-
-  const nextClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    setCurrentPage((page) => {
-      if (page >= pages.length) return pages.length
-      return page + 1
-    })
-  }
+  const {
+    pages,
+    currentPage,
+    prevClickHandler,
+    pageClickHandler,
+    nextClickHandler,
+  } = usePagination(productsLength, productCountOnPage, setValue)
 
   return (
     <div className={styles.pagination}>

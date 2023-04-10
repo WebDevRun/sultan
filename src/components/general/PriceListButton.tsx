@@ -1,30 +1,35 @@
 import { FC } from 'react'
+import cn from 'classnames'
 
-import { setModificationToStyle } from '../../utils'
 import styles from './PriceListButton.module.scss'
 
 interface PriceListButtonProps {
-  isWhite?: boolean
+  color?: 'white' | 'lightYellow'
 }
 
 export const PriceListButton: FC<PriceListButtonProps> = ({
-  isWhite = false,
+  color = 'lightYellow',
 }) => {
-  const buttonStypes = setModificationToStyle(
-    styles.priceListButton,
-    styles.priceListButton_white,
-    styles.priceListButton_lightYellow
-  )
-
-  const textStypes = setModificationToStyle(
-    styles.priceListButton__text,
-    styles.priceListButton__text_white,
-    styles.priceListButton__text_lightYellow
-  )
-
   return (
-    <button className={buttonStypes(isWhite)} type="button">
-      <span className={textStypes(isWhite)}>Прайс-лист</span>
+    <button
+      className={cn(
+        styles.priceListButton,
+        { [styles.priceListButton_white]: color === 'white' },
+        { [styles.priceListButton_lightYellow]: color === 'lightYellow' }
+      )}
+      type="button"
+    >
+      <span
+        className={cn(
+          styles.priceListButton__text,
+          { [styles.priceListButton__text_white]: color === 'white' },
+          {
+            [styles.priceListButton__text_lightYellow]: color === 'lightYellow',
+          }
+        )}
+      >
+        Прайс-лист
+      </span>
       <svg
         width="12"
         height="13"

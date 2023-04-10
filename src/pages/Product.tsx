@@ -17,8 +17,9 @@ export const Product: FC = () => {
     }
   }, [status])
 
-  if (productId === undefined || product === undefined)
+  if (productId === undefined || product === undefined) {
     return <div className={styles.product__error}>Нет такого товара</div>
+  }
 
   return (
     <div className={styles.product}>

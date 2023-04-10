@@ -1,10 +1,8 @@
-import { MouseEventHandler, useState, FC } from 'react'
-import { useDispatch } from 'react-redux'
+import { FC } from 'react'
 
-import { useAppSelector } from '../../store'
-import { appendProduct } from '../../store/basketSlice'
 import { IProduct } from '../../store/productsSlice'
 import { Counter, PriceListButton } from '../general'
+import { useSelectProduct } from './hooks/useSelectProduct'
 import styles from './SelectProduct.module.scss'
 import share from '/images/product/share.svg'
 
@@ -13,25 +11,7 @@ interface SelectProductProps {
 }
 
 export const SelectProduct: FC<SelectProductProps> = ({ product }) => {
-  const selectedProducts = useAppSelector(
-    (state) => state.basketReducer.selectedProducts
-  )
-  const [count, setCount] = useState(() => {
-    const findedProduct = selectedProducts?.find(
-      (selectedProduct) => selectedProduct.product.id === product.id
-    )
-
-    if (findedProduct !== undefined) {
-      return findedProduct.count
-    }
-
-    return 1
-  })
-  const dispatch = useDispatch()
-
-  const submitClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    dispatch(appendProduct({ product, count }))
-  }
+  const { count, setCount, submitClickHandler } = useSelectProduct(product)
 
   return (
     <div className={styles.selectProduct}>
@@ -73,7 +53,7 @@ export const SelectProduct: FC<SelectProductProps> = ({ product }) => {
       </div>
 
       <div className={styles.selectProduct__priceList}>
-        <PriceListButton isWhite={true} />
+        <PriceListButton color="white" />
       </div>
     </div>
   )

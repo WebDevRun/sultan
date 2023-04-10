@@ -4,8 +4,9 @@ import { Subtitle } from './Subtitle'
 import { PriceListButton } from '../general'
 import styles from './PriceList.module.scss'
 
+const subtitle = 'Скачать прайс-лист:'
+
 export const PriceList: FC = () => {
-  const subtitle = 'Скачать прайс-лист:'
   return (
     <div className={styles.priceList}>
       <div className={styles.priceList__subtitle}>

@@ -1,27 +1,17 @@
-import { ChangeEventHandler, FC } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { FC } from 'react'
 
 import { useSortProducts } from './hooks/useSortProducts'
 import styles from './SortProducts.module.scss'
 import triangle from '/images/general/triangle.png'
 
 export const SortProducts: FC = () => {
-  const [params, setParams] = useSearchParams()
-  const { sortOptions, selectValue, checkboxStatus } = useSortProducts(params)
-
-  const selectChangeHandler: ChangeEventHandler<HTMLSelectElement> = (
-    event
-  ) => {
-    params.set('select', event.currentTarget.value)
-    setParams(params)
-  }
-
-  const checkboxChangeHandler: ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
-    params.set('toggleASC', String(event.currentTarget.checked))
-    setParams(params)
-  }
+  const {
+    sortOptions,
+    selectValue,
+    checkboxStatus,
+    selectChangeHandler,
+    checkboxChangeHandler,
+  } = useSortProducts()
 
   return (
     <form className={styles.sort}>
@@ -32,7 +22,7 @@ export const SortProducts: FC = () => {
         onChange={selectChangeHandler}
         value={selectValue}
       >
-        {sortOptions.current.map((option) => {
+        {sortOptions.map((option) => {
           return (
             <option key={option.name} value={option.name}>
               {option.description}

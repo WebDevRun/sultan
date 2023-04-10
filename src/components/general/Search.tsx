@@ -5,16 +5,16 @@ import {
   ChangeEventHandler,
   Dispatch,
 } from 'react'
+import cn from 'classnames'
 
-import { setModificationToStyle } from '../../utils'
 import styles from './Search.module.scss'
 
 interface SearchProps {
   setValue?: Dispatch<React.SetStateAction<string>>
-  isHeader?: boolean
+  position?: 'header' | 'body'
 }
 
-export const Search: FC<SearchProps> = ({ setValue, isHeader = false }) => {
+export const Search: FC<SearchProps> = ({ setValue, position = 'body' }) => {
   const [searchValue, setSearchValue] = useState('')
 
   const inputChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -26,34 +26,20 @@ export const Search: FC<SearchProps> = ({ setValue, isHeader = false }) => {
     setValue(searchValue)
   }
 
-  const setSearchStyles = setModificationToStyle(
-    styles.search,
-    styles.search_header,
-    styles.search_body
-  )
-
-  const setSearchInputStyles = setModificationToStyle(
-    styles.search__input,
-    styles.search__input_header,
-    styles.search__input_body
-  )
-
-  const setImageContainerStyles = setModificationToStyle(
-    styles.search__imageContainer,
-    styles.search__imageContainer_header,
-    styles.search__imageContainer_body
-  )
-
-  const setTextStyles = setModificationToStyle(
-    styles.search__text,
-    styles.search__text_header,
-    styles.search__text_body
-  )
-
   return (
-    <label className={setSearchStyles(isHeader)}>
+    <label
+      className={cn(
+        styles.search,
+        { [styles.search_header]: position === 'header' },
+        { [styles.search_body]: position === 'body' }
+      )}
+    >
       <input
-        className={setSearchInputStyles(isHeader)}
+        className={cn(
+          styles.search__input,
+          { [styles.search__input_header]: position === 'header' },
+          { [styles.search__input_body]: position === 'body' }
+        )}
         type="text"
         name="search"
         placeholder="Поиск..."
@@ -61,7 +47,11 @@ export const Search: FC<SearchProps> = ({ setValue, isHeader = false }) => {
         onChange={inputChangeHandler}
       />
       <button
-        className={setImageContainerStyles(isHeader)}
+        className={cn(
+          styles.search__imageContainer,
+          { [styles.search__imageContainer_header]: position === 'header' },
+          { [styles.search__imageContainer_body]: position === 'body' }
+        )}
         type="button"
         onClick={buttonClickHandler}
       >
@@ -79,7 +69,15 @@ export const Search: FC<SearchProps> = ({ setValue, isHeader = false }) => {
             strokeLinecap="round"
           />
         </svg>
-        <p className={setTextStyles(isHeader)}>Поиск</p>
+        <p
+          className={cn(
+            styles.search__text,
+            { [styles.search__text_header]: position === 'header' },
+            { [styles.search__text_body]: position === 'body' }
+          )}
+        >
+          Поиск
+        </p>
       </button>
     </label>
   )

@@ -5,9 +5,9 @@ import { Address } from './Address'
 import { Mail, Navigation } from '../general'
 import styles from './Menu.module.scss'
 
-export const Menu: FC = () => {
-  const menu = ['О компании', 'Доставка и оплата', 'Возврат', 'Контакты']
+const menu = ['О компании', 'Доставка и оплата', 'Возврат', 'Контакты']
 
+export const Menu: FC = () => {
   return (
     <div className={styles.menu}>
       <Container>

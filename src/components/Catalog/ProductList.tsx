@@ -21,11 +21,12 @@ export const ProductList: FC<ProductListProps> = ({ products }) => {
           return <ProductCard key={product.id} product={product} />
         })}
       </div>
-      {products.length >= productCountOnPage.current && (
+
+      {products.length >= productCountOnPage && (
         <div className={styles.productList__pagination}>
           <Pagination
             productsLength={products.length}
-            productCountOnPage={productCountOnPage.current}
+            productCountOnPage={productCountOnPage}
             setValue={setCurrentPage}
           />
         </div>

@@ -13,6 +13,7 @@ export const Subscribe: FC = () => {
           type="text"
           placeholder="Введите ваш E-mail"
         />
+
         <button className={styles.subscribe__button} type="submit">
           <img className={styles.subscribe__image} src={arrow} alt="arrow" />
         </button>

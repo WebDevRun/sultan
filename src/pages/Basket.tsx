@@ -1,25 +1,13 @@
-import { MouseEventHandler, useEffect, FC, useState } from 'react'
+import { FC } from 'react'
 
 import styles from './Basket.module.scss'
 import { PopupMessage, ProductList } from '../components/Basket'
-import { useAppDispatch, useAppSelector } from '../store'
 import { PopupLayout } from '../layouts'
-import { clearProducts } from '../store/basketSlice'
+import { useBasket } from './hooks/useBasket'
 
 export const Basket: FC = () => {
-  const { selectedProducts, totalPrice } = useAppSelector(
-    (state) => state.basketReducer
-  )
-  const dispatch = useAppDispatch()
-  const [isOpen, setIsOpen] = useState(false)
-
-  useEffect(() => {
-    if (isOpen) dispatch(clearProducts())
-  }, [isOpen])
-
-  const buyClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    setIsOpen(true)
-  }
+  const { selectedProducts, totalPrice, isOpen, setIsOpen, buyClickHandler } =
+    useBasket()
 
   if (selectedProducts.length === 0) {
     if (isOpen) {

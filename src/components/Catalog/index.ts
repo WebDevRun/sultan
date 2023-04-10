@@ -1,4 +1,4 @@
-export { FilterProducts } from './FilterProducts'
+export { CareTypesFilter } from './CareTypesFilter'
 export { SortProducts } from './SortProducts'
 export { LeftFilters } from './LeftFilters'
 export { ProductList } from './ProductList'

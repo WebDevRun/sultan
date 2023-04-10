@@ -10,18 +10,18 @@
     display: flex;
     justify-content: space-between;
 
-    &_row {
+    &_horizontal {
       align-items: center;
     }
 
-    &_column {
+    &_vertical {
       flex-direction: column;
       gap: 20px;
     }
   }
 
   &__element {
-    &_row {
+    &_horizontal {
       color: ui.$gray;
 
       &:not(:last-child) {

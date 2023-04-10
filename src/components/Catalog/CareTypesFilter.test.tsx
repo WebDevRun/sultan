@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { BrowserRouter } from 'react-router-dom'
 
-import { FilterProducts } from './FilterProducts'
+import { CareTypesFilter } from './CareTypesFilter'
 
 describe('Filter Product tests', () => {
   const filters = ['Уход за телом', 'Уход за ногами', 'Уход за руками']
@@ -11,7 +11,7 @@ describe('Filter Product tests', () => {
   it('should change style when click on filter', async () => {
     const user = userEvent.setup()
 
-    render(<FilterProducts filters={filters} />, {
+    render(<CareTypesFilter filters={filters} />, {
       wrapper: BrowserRouter,
     })
 
@@ -28,8 +28,8 @@ describe('Filter Product tests', () => {
     })
   })
 
-  it('should change style when prop isLeft = true', () => {
-    render(<FilterProducts filters={filters} isLeft={true} />, {
+  it('should change style when prop position = vertical', () => {
+    render(<CareTypesFilter filters={filters} position="vertical" />, {
       wrapper: BrowserRouter,
     })
 
@@ -38,8 +38,8 @@ describe('Filter Product tests', () => {
     expect(ul).toMatchSnapshot()
   })
 
-  it('should change style when prop isLeft = false', () => {
-    render(<FilterProducts filters={filters} />, {
+  it('should change style when prop position = horizontal', () => {
+    render(<CareTypesFilter filters={filters} />, {
       wrapper: BrowserRouter,
     })
 

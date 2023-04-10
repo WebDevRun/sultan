@@ -1,46 +1,42 @@
 import { FC } from 'react'
+import cn from 'classnames'
 
 import styles from './Navigation.module.scss'
 
 interface NavigationProps {
   list: string[]
-  isColumn?: boolean
+  position?: 'vertical' | 'horizontal'
 }
 
 export const Navigation: FC<NavigationProps> = ({
   list = [],
-  isColumn = false,
+  position = 'horizontal',
 }) => {
-  const ulStyles = (isColumn: boolean): string => {
-    const stylesList = [styles.navigation__list]
-
-    if (isColumn) {
-      stylesList.push(styles.navigation__list_column)
-    } else {
-      stylesList.push(styles.navigation__list_row)
-    }
-
-    return stylesList.join(' ')
-  }
-
-  const liStyles = (isColumn: boolean): string => {
-    const stylesList = [styles.navigation__element]
-
-    if (isColumn) {
-      stylesList.push(styles.navigation__element_column)
-    } else {
-      stylesList.push(styles.navigation__element_row)
-    }
-
-    return stylesList.join(' ')
-  }
-
   return (
     <nav className={styles.navigation}>
-      <ul className={ulStyles(isColumn)}>
+      <ul
+        className={cn(
+          styles.navigation__list,
+          { [styles.navigation__list_vertical]: position === 'vertical' },
+          { [styles.navigation__list_horizontal]: position === 'horizontal' }
+        )}
+      >
         {list.map((element, index) => {
           return (
-            <li key={index} className={liStyles(isColumn)}>
+            <li
+              key={index}
+              className={cn(
+                styles.navigation__element,
+                {
+                  [styles.navigation__element_vertical]:
+                    position === 'vertical',
+                },
+                {
+                  [styles.navigation__element_horizontal]:
+                    position === 'horizontal',
+                }
+              )}
+            >
               <a className={styles.navigation__link} href="#">
                 {element}
               </a>

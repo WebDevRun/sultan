@@ -7,8 +7,9 @@ import { useAppSelector } from '../store'
 export const Admin: FC = () => {
   const products = useAppSelector((state) => state.productsReducer.products)
 
-  if (products.length === 0)
+  if (products.length === 0) {
     return <div className={styles.admin__error}>Загрузка...</div>
+  }
 
   return (
     <div className={styles.admin}>

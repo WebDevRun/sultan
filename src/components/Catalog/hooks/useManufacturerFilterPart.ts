@@ -1,13 +1,8 @@
-import { Dispatch, useEffect, useState } from 'react'
+import { ChangeEventHandler, useEffect, useState } from 'react'
+
 import { useAppSelector } from '../../../store'
 
-export const useuseManufacturerFilterPart = (): [
-  Dispatch<React.SetStateAction<string>>,
-  Dispatch<React.SetStateAction<'four' | 'all'>>,
-  string[],
-  Record<string, number>,
-  'four' | 'all'
-] => {
+export const useManufacturerFilterPart = () => {
   const products = useAppSelector((state) => state.productsReducer.products)
 
   const [searchString, setSearchString] = useState('')
@@ -53,11 +48,19 @@ export const useuseManufacturerFilterPart = (): [
     setFilteredManufacturers(filteredManufacturers)
   }, [searchString, manufacturers, manufacturerListCount])
 
-  return [
-    setSearchString,
-    setManufacturerListCount,
+  const buttonClickHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
+    if (event.target.checked) {
+      setManufacturerListCount('all')
+    } else {
+      setManufacturerListCount('four')
+    }
+  }
+
+  return {
     filteredManufacturers,
     manufacturerCount,
     manufacturerListCount,
-  ]
+    setSearchString,
+    buttonClickHandler,
+  }
 }

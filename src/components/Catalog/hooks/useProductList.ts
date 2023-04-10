@@ -1,16 +1,10 @@
-import { Dispatch, useEffect, useRef, useState, MutableRefObject } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { IProduct } from '../../../store/productsSlice'
 
-export const useProductList = (
-  products: IProduct[]
-): {
-  productCountOnPage: MutableRefObject<number>
-  splitedProducts: IProduct[][]
-  currentPage: number
-  setCurrentPage: Dispatch<React.SetStateAction<number>>
-} => {
-  const productCountOnPage = useRef(15)
+const productCountOnPage = 15
+
+export const useProductList = (products: IProduct[]) => {
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [splitedProducts, setSplitedProducts] = useState<IProduct[][]>([[]])
 
@@ -20,12 +14,12 @@ export const useProductList = (
 
       for (
         let i = 0;
-        i < Math.ceil(products.length / productCountOnPage.current);
+        i < Math.ceil(products.length / productCountOnPage);
         i++
       ) {
         array[i] = products.slice(
-          i * productCountOnPage.current,
-          i * productCountOnPage.current + productCountOnPage.current
+          i * productCountOnPage,
+          i * productCountOnPage + productCountOnPage
         )
       }
 

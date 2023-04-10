@@ -1,27 +1,19 @@
-import { MutableRefObject, useEffect, useState, useRef } from 'react'
+import { useEffect, useState, ChangeEventHandler } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
-export const useSortProducts = (
-  params: URLSearchParams
-): {
-  sortOptions: MutableRefObject<
-    Array<{
-      name: string
-      description: string
-    }>
-  >
-  selectValue: string | undefined
-  checkboxStatus: boolean
-} => {
-  const sortOptions = useRef([
-    {
-      name: 'name',
-      description: 'Название',
-    },
-    {
-      name: 'price',
-      description: 'Цена',
-    },
-  ])
+const sortOptions = [
+  {
+    name: 'name',
+    description: 'Название',
+  },
+  {
+    name: 'price',
+    description: 'Цена',
+  },
+]
+
+export const useSortProducts = () => {
+  const [params, setParams] = useSearchParams()
 
   const [checkboxStatus, setCheckboxStatus] = useState(false)
   const [selectValue, setselectValue] = useState<string | undefined>(undefined)
@@ -45,12 +37,32 @@ export const useSortProducts = (
     const value = params.get('select')
 
     if (value === null) {
-      setselectValue(sortOptions.current[0].name)
+      setselectValue(sortOptions[0].name)
       return
     }
 
     setselectValue(value)
   }, [params])
 
-  return { sortOptions, selectValue, checkboxStatus }
+  const selectChangeHandler: ChangeEventHandler<HTMLSelectElement> = (
+    event
+  ) => {
+    params.set('select', event.currentTarget.value)
+    setParams(params)
+  }
+
+  const checkboxChangeHandler: ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    params.set('toggleASC', String(event.currentTarget.checked))
+    setParams(params)
+  }
+
+  return {
+    sortOptions,
+    selectValue,
+    checkboxStatus,
+    selectChangeHandler,
+    checkboxChangeHandler,
+  }
 }

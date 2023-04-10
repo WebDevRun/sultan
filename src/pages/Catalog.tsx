@@ -1,8 +1,7 @@
 import { FC } from 'react'
 
-import { useAppSelector } from '../store'
 import {
-  FilterProducts,
+  CareTypesFilter,
   SortProducts,
   LeftFilters,
   ProductList,
@@ -12,10 +11,7 @@ import styles from './Catalog.module.scss'
 import { useCatalog } from './hooks/useCatalog'
 
 export const Catalog: FC = () => {
-  const { error, products, status, typesOfCare } = useAppSelector(
-    (state) => state.productsReducer
-  )
-  const filteredProducts = useCatalog(products)
+  const { error, status, typesOfCare, filteredProducts } = useCatalog()
 
   if (status === 'failed') {
     return <div className={styles.catalog__error}>{error}</div>
@@ -29,7 +25,7 @@ export const Catalog: FC = () => {
       </div>
 
       <div className={styles.catalog__filter}>
-        <FilterProducts filters={typesOfCare} />
+        <CareTypesFilter filters={typesOfCare} />
       </div>
 
       <div className={styles.catalog__leftFilters}>
@@ -38,7 +34,7 @@ export const Catalog: FC = () => {
         </div>
 
         <div className={styles.catalog__filterProducts}>
-          <FilterProducts filters={typesOfCare} isLeft={true} />
+          <CareTypesFilter filters={typesOfCare} position="vertical" />
         </div>
       </div>
       <div className={styles.catalog__productList}>

@@ -4,22 +4,22 @@ import styles from './Messengers.module.scss'
 import watsapp from '/images/footer/watsapp.png'
 import telegram from '/images/footer/telegram.png'
 
-export const Messengers: FC = () => {
-  const messengers = [
-    {
-      id: 1,
-      name: 'watsapp',
-      href: '#',
-      src: watsapp,
-    },
-    {
-      id: 2,
-      name: 'telegram',
-      href: '#',
-      src: telegram,
-    },
-  ]
+const messengers = [
+  {
+    id: 1,
+    name: 'watsapp',
+    href: '#',
+    src: watsapp,
+  },
+  {
+    id: 2,
+    name: 'telegram',
+    href: '#',
+    src: telegram,
+  },
+]
 
+export const Messengers: FC = () => {
   return (
     <div className={styles.messengers}>
       <p className={styles.messengers__title}>Связь в мессенджерах:</p>

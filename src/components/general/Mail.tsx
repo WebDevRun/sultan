@@ -1,45 +1,38 @@
 import { FC } from 'react'
+import cn from 'classnames'
 
 import styles from './Mail.module.scss'
 import mail from '/images/general/mail.svg'
 
 interface MailProps {
-  isFooter?: boolean
+  position?: 'footer' | 'header'
 }
 
-export const Mail: FC<MailProps> = ({ isFooter = false }) => {
-  const setAddressStyles = (isFooter: boolean): string => {
-    const stylesList = [styles.mail__address]
-
-    if (isFooter) {
-      stylesList.push(styles.phone__address_footer)
-    } else {
-      stylesList.push(styles.phone__address_header)
-    }
-
-    return stylesList.join(' ')
-  }
-
-  const setCorrectionStyles = (isFooter: boolean): string => {
-    const stylesList = [styles.mail__correction]
-
-    if (isFooter) {
-      stylesList.push(styles.phone__correction_footer)
-    } else {
-      stylesList.push(styles.phone__correction_header)
-    }
-
-    return stylesList.join(' ')
-  }
-
+export const Mail: FC<MailProps> = ({ position = 'header' }) => {
   return (
     <a href="#" className={styles.mail}>
-      {!isFooter && (
+      {position === 'header' && (
         <img className={styles.mail__image} src={mail} alt="mail" />
       )}
       <div className={styles.mail__description}>
-        <p className={setAddressStyles(isFooter)}>opt.sultan@mail.ru</p>
-        <p className={setCorrectionStyles(isFooter)}>На связи в любое время</p>
+        <p
+          className={cn(
+            styles.mail__address,
+            { [styles.phone__address_header]: position === 'header' },
+            { [styles.phone__address_footer]: position === 'footer' }
+          )}
+        >
+          opt.sultan@mail.ru
+        </p>
+        <p
+          className={cn(
+            styles.mail__correction,
+            { [styles.phone__correction_header]: position === 'header' },
+            { [styles.phone__correction_footer]: position === 'footer' }
+          )}
+        >
+          На связи в любое время
+        </p>
       </div>
     </a>
   )

@@ -1,51 +1,19 @@
-import { FormEventHandler, MouseEventHandler, useState, FC } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { FC } from 'react'
 
 import { PriceFilterPart } from './PriceFilterPart'
 import { ManufacturerFilterPart } from './ManufacturerFilterPart'
 import styles from './LeftFilters.module.scss'
 import urn from '/images/general/urn.svg'
+import { useLeftFilters } from './hooks/useLeftFilters'
 
 export const LeftFilters: FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams()
-
-  const [formHidden, setFormHidden] = useState(false)
-
-  const toggleHiddenClickHandler: MouseEventHandler<HTMLButtonElement> = (
-    event
-  ) => {
-    setFormHidden((prev) => !prev)
-  }
-
-  const formSubmitHandler: FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-
-    const manufacturers = formData.getAll('manufacturer')
-
-    if (manufacturers.length === 0) {
-      searchParams.delete('manufacturer')
-    }
-
-    for (const [key, value] of formData) {
-      const strValue = typeof value === 'string' ? value : value.name
-
-      if (key === 'search') continue
-
-      if (key === 'manufacturer') {
-        searchParams.set(key, manufacturers.join(','))
-        continue
-      }
-
-      searchParams.set(key, strValue)
-    }
-
-    setSearchParams(searchParams)
-  }
-
-  const formResetHandler: FormEventHandler<HTMLFormElement> = (event) => {
-    setSearchParams(undefined)
-  }
+  const {
+    searchParams,
+    formHidden,
+    toggleHiddenClickHandler,
+    formSubmitHandler,
+    formResetHandler,
+  } = useLeftFilters()
 
   return (
     <div className={styles.leftFilters}>
