@@ -1,4 +1,4 @@
-import { type MutableRefObject, useEffect, useState, useRef } from 'react'
+import { MutableRefObject, useEffect, useState, useRef } from 'react'
 
 export const useSortProducts = (
   params: URLSearchParams

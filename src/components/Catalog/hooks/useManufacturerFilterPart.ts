@@ -1,4 +1,4 @@
-import { type Dispatch, useEffect, useState } from 'react'
+import { Dispatch, useEffect, useState } from 'react'
 import { useAppSelector } from '../../../store'
 
 export const useuseManufacturerFilterPart = (): [
@@ -8,7 +8,7 @@ export const useuseManufacturerFilterPart = (): [
   Record<string, number>,
   'four' | 'all'
 ] => {
-  const products = useAppSelector((state) => state.productsSlice.products)
+  const products = useAppSelector((state) => state.productsReducer.products)
 
   const [searchString, setSearchString] = useState('')
   const [manufacturerCount, setManufacturerCount] = useState<

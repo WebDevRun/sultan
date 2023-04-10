@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import styles from './Messengers.module.scss'
 import watsapp from '/images/footer/watsapp.png'

@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import { Subtitle } from './Subtitle'
 import { Navigation } from '../general'

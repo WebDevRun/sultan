@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import { PayCards } from './PayCards'
 import { Subtitle } from './Subtitle'

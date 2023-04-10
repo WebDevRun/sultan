@@ -21,7 +21,6 @@ export const ManufacturerFilterPart: FC<ManufacturerFilterPartProps> = ({
   ] = useuseManufacturerFilterPart()
 
   const buttonClickHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
-    console.log(event.target.checked)
     if (event.target.checked) {
       setManufacturerListCount('all')
     } else {

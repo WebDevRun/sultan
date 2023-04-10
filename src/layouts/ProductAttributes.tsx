@@ -1,4 +1,4 @@
-import { type ReactNode, type FC } from 'react'
+import { ReactNode, FC } from 'react'
 
 import styles from './ProductAttributes.module.scss'
 import triangle from '/images/general/triangle.png'

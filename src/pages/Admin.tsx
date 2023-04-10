@@ -1,11 +1,11 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import styles from './Admin.module.scss'
 import { ProductList, AppendProduct } from '../components/Admin'
 import { useAppSelector } from '../store'
 
 export const Admin: FC = () => {
-  const products = useAppSelector((state) => state.productsSlice.products)
+  const products = useAppSelector((state) => state.productsReducer.products)
 
   if (products.length === 0)
     return <div className={styles.admin__error}>Загрузка...</div>

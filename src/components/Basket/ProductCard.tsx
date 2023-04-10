@@ -1,7 +1,11 @@
-import { type MouseEventHandler, useEffect, useState, type FC } from 'react'
+import { MouseEventHandler, useEffect, useState, FC } from 'react'
 
-import { useAppDispatch, type ISelectedProduct } from '../../store'
-import { appendProduct, removeProduct } from '../../store/basketSlice'
+import { useAppDispatch } from '../../store'
+import {
+  appendProduct,
+  removeProduct,
+  ISelectedProduct,
+} from '../../store/basketSlice'
 import { Counter, ProductSize } from '../general'
 import styles from './ProductCard.module.scss'
 import urn from '/images/general/urn.svg'

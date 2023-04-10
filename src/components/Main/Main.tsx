@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import { Container } from '../Container'

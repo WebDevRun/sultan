@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import styles from './Address.module.scss'
 import location from '/images/menu/location.svg'

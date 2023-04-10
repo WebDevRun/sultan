@@ -1,4 +1,4 @@
-import { type Dispatch, useEffect, useState } from 'react'
+import { Dispatch, useEffect, useState } from 'react'
 
 export const usePagination = (
   productsLength: number,

@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import styles from './Phone.module.scss'
 import phone from '/images/general/phone.png'

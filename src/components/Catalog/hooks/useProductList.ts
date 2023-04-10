@@ -1,12 +1,6 @@
-import {
-  type Dispatch,
-  useEffect,
-  useRef,
-  useState,
-  type MutableRefObject,
-} from 'react'
+import { Dispatch, useEffect, useRef, useState, MutableRefObject } from 'react'
 
-import { type IProduct } from '../../../store'
+import { IProduct } from '../../../store/productsSlice'
 
 export const useProductList = (
   products: IProduct[]

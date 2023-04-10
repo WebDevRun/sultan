@@ -7,7 +7,7 @@ import { pathnames } from '../../router'
 import { Container } from '../Container'
 
 export const Breadcrumbs: FC = () => {
-  const products = useAppSelector((state) => state.productsSlice.products)
+  const products = useAppSelector((state) => state.productsReducer.products)
   const [paths, setPaths] = useState<Record<string, string>>(pathnames)
   const location = useLocation()
   const navigate = useNavigate()

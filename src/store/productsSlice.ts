@@ -1,5 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
 export const getProducts = createAsyncThunk<
   IProduct[],
@@ -105,4 +104,4 @@ const productsSlice = createSlice({
 })
 
 export const { addProducts, setProduct, removeProduct } = productsSlice.actions
-export default productsSlice.reducer
+export const productsReducer = productsSlice.reducer

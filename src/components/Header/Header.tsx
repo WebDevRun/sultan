@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import { Container } from '../Container'
 import { Logo, Phone, PriceListButton, Search } from '../general'

@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import styles from './Mail.module.scss'
 import mail from '/images/general/mail.svg'

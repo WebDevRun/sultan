@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { type IProduct } from '../../store/productsSlice'
+import { IProduct } from '../../store/productsSlice'
 
 export const useCatalog = (products: IProduct[]): IProduct[] => {
   const [params] = useSearchParams()

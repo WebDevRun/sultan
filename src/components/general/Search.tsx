@@ -1,9 +1,9 @@
 import {
   useState,
-  type FC,
-  type MouseEventHandler,
-  type ChangeEventHandler,
-  type Dispatch,
+  FC,
+  MouseEventHandler,
+  ChangeEventHandler,
+  Dispatch,
 } from 'react'
 
 import { setModificationToStyle } from '../../utils'

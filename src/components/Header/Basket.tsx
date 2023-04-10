@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../../store'
 
@@ -7,7 +7,7 @@ import basket from '/images/general/basket.svg'
 
 export const Basket: FC = () => {
   const { totalCount, totalPrice } = useAppSelector(
-    (state) => state.basketSlice
+    (state) => state.basketReducer
   )
   return (
     <Link to="basket" className={styles.basket}>

@@ -1,5 +1,5 @@
-import { type FC } from 'react'
-import { type ISelectedProduct } from '../../store'
+import { FC } from 'react'
+import { ISelectedProduct } from '../../store/basketSlice'
 import { ProductCard } from './ProductCard'
 
 import styles from './ProductList.module.scss'

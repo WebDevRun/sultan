@@ -1,4 +1,4 @@
-import { type MouseEventHandler, type Dispatch, type FC } from 'react'
+import { MouseEventHandler, Dispatch, FC } from 'react'
 
 import styles from './Counter.module.scss'
 

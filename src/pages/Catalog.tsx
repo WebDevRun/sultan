@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import { useAppSelector } from '../store'
 import {
@@ -13,7 +13,7 @@ import { useCatalog } from './hooks/useCatalog'
 
 export const Catalog: FC = () => {
   const { error, products, status, typesOfCare } = useAppSelector(
-    (state) => state.productsSlice
+    (state) => state.productsReducer
   )
   const filteredProducts = useCatalog(products)
 

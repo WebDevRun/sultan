@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import styles from './PopupMessage.module.scss'
 import doubleOK from '/images/general/doubleOK.svg'

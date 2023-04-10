@@ -1,9 +1,4 @@
-import {
-  type ReactNode,
-  type FC,
-  type Dispatch,
-  type MouseEventHandler,
-} from 'react'
+import { ReactNode, FC, Dispatch, MouseEventHandler } from 'react'
 
 import styles from './PopupLayout.module.scss'
 import close from '/images/general/close.svg'

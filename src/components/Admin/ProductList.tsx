@@ -1,7 +1,7 @@
-import { type FC } from 'react'
-import { type IProduct } from '../../store'
-import { Product } from './Product'
+import { FC } from 'react'
 
+import { IProduct } from '../../store/productsSlice'
+import { Product } from './Product'
 import styles from './ProductList.module.scss'
 
 interface ProductListProps {

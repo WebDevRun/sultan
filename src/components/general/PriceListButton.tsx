@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import { setModificationToStyle } from '../../utils'
 import styles from './PriceListButton.module.scss'

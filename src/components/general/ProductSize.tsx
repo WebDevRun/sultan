@@ -1,6 +1,6 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
-import { type IProduct } from '../../store'
+import { IProduct } from '../../store/productsSlice'
 import styles from './ProductSize.module.scss'
 import weight from '/images/general/weight.svg'
 import volume from '/images/general/volume.svg'

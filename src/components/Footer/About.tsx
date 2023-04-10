@@ -1,4 +1,5 @@
-import { type FC } from 'react'
+import { FC } from 'react'
+
 import { Subscribe } from './Subscribe'
 import styles from './About.module.scss'
 

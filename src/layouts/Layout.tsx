@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import { Main, Header, Menu, Footer, Breadcrumbs } from '../components'
 import styles from './Layout.module.scss'

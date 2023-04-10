@@ -1,7 +1,8 @@
-import { type MouseEventHandler, type FC } from 'react'
+import { MouseEventHandler, FC } from 'react'
 import { Link } from 'react-router-dom'
 
-import { useAppDispatch, type IProduct } from '../../store'
+import { useAppDispatch } from '../../store'
+import { IProduct } from '../../store/productsSlice'
 import { appendProduct } from '../../store/basketSlice'
 import { ProductSize, Specifications } from '../general'
 import styles from './ProductCard.module.scss'

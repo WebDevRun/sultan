@@ -1,15 +1,15 @@
-import { useEffect, useState, type FC } from 'react'
+import { useEffect, useState, FC } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { useAppSelector } from '../store'
-import { type IProduct } from '../store/productsSlice'
+import { IProduct } from '../store/productsSlice'
 import { Product as ProductInfomation } from '../components/Product'
 import styles from './Product.module.scss'
 
 export const Product: FC = () => {
   const productId = useParams().id
   const [product, setProduct] = useState<IProduct | undefined>()
-  const { status, products } = useAppSelector((state) => state.productsSlice)
+  const { status, products } = useAppSelector((state) => state.productsReducer)
 
   useEffect(() => {
     if (status === 'succeeded') {

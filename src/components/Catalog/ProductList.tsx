@@ -1,6 +1,6 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
-import { type IProduct } from '../../store'
+import { IProduct } from '../../store/productsSlice'
 import { ProductCard } from './ProductCard'
 import { Pagination } from './Pagination'
 import styles from './ProductList.module.scss'

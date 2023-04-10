@@ -1,8 +1,8 @@
 import { FC, FormEventHandler, RefObject } from 'react'
 
 import styles from './ProductForm.module.scss'
-import { IProduct, useAppDispatch, useAppSelector } from '../../store'
-import { setProduct } from '../../store/productsSlice'
+import { useAppDispatch, useAppSelector } from '../../store'
+import { setProduct, IProduct } from '../../store/productsSlice'
 
 interface ProductForm {
   product?: IProduct
@@ -10,7 +10,9 @@ interface ProductForm {
 }
 
 export const ProductForm: FC<ProductForm> = ({ product, container }) => {
-  const typesOfCare = useAppSelector((state) => state.productsSlice.typesOfCare)
+  const typesOfCare = useAppSelector(
+    (state) => state.productsReducer.typesOfCare
+  )
   const dispatch = useAppDispatch()
 
   const submitClickHandler: FormEventHandler<HTMLFormElement> = (event) => {

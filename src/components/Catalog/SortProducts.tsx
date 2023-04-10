@@ -1,7 +1,7 @@
-import { type ChangeEventHandler, type FC } from 'react'
+import { ChangeEventHandler, FC } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { useSortProducts } from './hooks/useSortProducts'
 
+import { useSortProducts } from './hooks/useSortProducts'
 import styles from './SortProducts.module.scss'
 import triangle from '/images/general/triangle.png'
 

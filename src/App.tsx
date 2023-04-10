@@ -1,4 +1,4 @@
-import { useEffect, type FC } from 'react'
+import { useEffect, FC } from 'react'
 
 import { router } from './router'
 import { RouterProvider } from 'react-router-dom'
@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from './store'
 import { addProducts, getProducts } from './store/productsSlice'
 
 export const App: FC = () => {
-  const { status } = useAppSelector((state) => state.productsSlice)
+  const { status } = useAppSelector((state) => state.productsReducer)
 
   const dispatch = useAppDispatch()
 

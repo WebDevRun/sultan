@@ -1,5 +1,5 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type IProduct } from './index'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { IProduct } from './productsSlice'
 
 export interface ISelectedProduct {
   product: IProduct
@@ -69,4 +69,4 @@ const basketSlice = createSlice({
 
 export const { appendProduct, removeProduct, clearProducts } =
   basketSlice.actions
-export default basketSlice.reducer
+export const basketReducer = basketSlice.reducer

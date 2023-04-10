@@ -1,9 +1,4 @@
-import {
-  type FormEventHandler,
-  type MouseEventHandler,
-  useState,
-  type FC,
-} from 'react'
+import { FormEventHandler, MouseEventHandler, useState, FC } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { PriceFilterPart } from './PriceFilterPart'

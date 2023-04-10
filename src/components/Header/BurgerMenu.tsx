@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import styles from './BurgerMenu.module.scss'
 import burgerImage from '/images/header/burger_menu.svg'

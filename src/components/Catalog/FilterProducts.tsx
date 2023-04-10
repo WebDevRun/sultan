@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, ChangeEventHandler, useRef } from 'react'
+import { FC, useState, useEffect, ChangeEventHandler } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import styles from './FilterProducts.module.scss'
@@ -61,7 +61,7 @@ export const FilterProducts: FC<FilterProductsProps> = ({
       if (prev.includes(value)) {
         prev = prev.filter((type) => type !== value)
       } else {
-        prev = [...prev, event.target.value]
+        prev = [...prev, value]
       }
 
       return prev

@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { FC } from 'react'
 
 import styles from './Subscribe.module.scss'
 import arrow from '/images/general/arrow.svg'

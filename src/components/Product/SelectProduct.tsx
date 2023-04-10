@@ -1,8 +1,9 @@
-import { type MouseEventHandler, useState, type FC } from 'react'
+import { MouseEventHandler, useState, FC } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { useAppSelector, type IProduct } from '../../store'
+import { useAppSelector } from '../../store'
 import { appendProduct } from '../../store/basketSlice'
+import { IProduct } from '../../store/productsSlice'
 import { Counter, PriceListButton } from '../general'
 import styles from './SelectProduct.module.scss'
 import share from '/images/product/share.svg'
@@ -13,7 +14,7 @@ interface SelectProductProps {
 
 export const SelectProduct: FC<SelectProductProps> = ({ product }) => {
   const selectedProducts = useAppSelector(
-    (state) => state.basketSlice.selectedProducts
+    (state) => state.basketReducer.selectedProducts
   )
   const [count, setCount] = useState(() => {
     const findedProduct = selectedProducts?.find(

@@ -1,9 +1,9 @@
 import { FC, MouseEventHandler, useRef } from 'react'
 
-import { IProduct, useAppDispatch } from '../../store'
+import { useAppDispatch } from '../../store'
 import { ProductSize } from '../general'
 import styles from './Product.module.scss'
-import { removeProduct } from '../../store/productsSlice'
+import { IProduct, removeProduct } from '../../store/productsSlice'
 import { ProductForm } from './ProductForm'
 import urn from '/images/general/urn.svg'
 

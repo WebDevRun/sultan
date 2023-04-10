@@ -1,22 +1,27 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { useDispatch, useSelector } from 'react-redux'
-import type { TypedUseSelectorHook } from 'react-redux'
+import {
+  configureStore,
+  combineReducers,
+  PreloadedState,
+} from '@reduxjs/toolkit'
+import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux'
 
-import productsSlice from './productsSlice'
-import basketSlice from './basketSlice'
+import { productsReducer } from './productsSlice'
+import { basketReducer } from './basketSlice'
 
-export const store = configureStore({
-  reducer: {
-    productsSlice,
-    basketSlice,
-  },
+const rootReducer = combineReducers({
+  productsReducer,
+  basketReducer,
 })
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
-
-export { type IProduct } from './productsSlice'
-export { type ISelectedProduct } from './basketSlice'
+export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  })
+}
+export type RootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof setupStore>
+export type AppDispatch = AppStore['dispatch']
 
 export const useAppDispatch: () => AppDispatch = useDispatch
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
